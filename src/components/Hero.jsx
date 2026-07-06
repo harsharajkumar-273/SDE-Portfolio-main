@@ -33,7 +33,7 @@ export default function Hero() {
         fontWeight: 800,
         lineHeight: 1.1,
         letterSpacing: '-.04em',
-        background: 'linear-gradient(135deg, #ffffff 0%, var(--text-muted) 100%)',
+        background: 'linear-gradient(135deg, #63b3ed 0%, #b794f4 50%, #f6c47f 100%)',
         WebkitBackgroundClip: 'text',
         WebkitTextFillColor: 'transparent',
         margin: '0.5rem 0'

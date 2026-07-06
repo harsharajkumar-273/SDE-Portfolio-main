@@ -38,12 +38,14 @@ export default function Navbar() {
       <a href="#about" style={{
         fontFamily: 'var(--font-space)',
         fontWeight: 800,
-        fontSize: '1.1rem',
-        color: 'white',
+        fontSize: '1.25rem',
         letterSpacing: '-.03em',
         textDecoration: 'none',
+        background: 'linear-gradient(135deg, #63b3ed 0%, #b794f4 100%)',
+        WebkitBackgroundClip: 'text',
+        WebkitTextFillColor: 'transparent'
       }}>
-        H<span style={{ color: 'var(--primary)' }}>.</span>RK
+        H.RK
       </a>
       
       <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
