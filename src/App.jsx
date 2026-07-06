@@ -216,22 +216,24 @@ export default function App() {
         <section id="projects" className="container" style={{ marginTop: '4rem' }}>
           <h2 className="font-space" style={{
             fontSize: '2rem',
-            fontWeight: 700,
+            fontWeight: 800,
             marginBottom: '1rem',
             textAlign: 'center',
-            background: 'linear-gradient(to right, #ffffff, var(--text-muted))',
+            background: 'linear-gradient(135deg, #ffffff 0%, var(--primary) 100%)',
             WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent'
+            WebkitTextFillColor: 'transparent',
+            letterSpacing: '-0.04em'
           }}>
             GitHub Projects & Simulators
           </h2>
           <p style={{
             textAlign: 'center',
             color: 'var(--text-muted)',
-            fontSize: '1rem',
+            fontSize: '0.95rem',
             marginBottom: '2.5rem',
             maxWidth: '600px',
-            margin: '0 auto 2.5rem auto'
+            margin: '0 auto 2.5rem auto',
+            lineHeight: 1.6
           }}>
             A showcase of core engineering implementations. Select a domain to filter, and launch dynamic interactive simulators.
           </p>
@@ -253,16 +255,16 @@ export default function App() {
                   onClick={() => setActiveTab(tab)}
                   className="font-space"
                   style={{
-                    padding: '0.5rem 1.2rem',
-                    borderRadius: '20px',
+                    padding: '0.5rem 1.25rem',
+                    borderRadius: '9999px',
                     border: '1px solid',
-                    borderColor: isActive ? 'var(--secondary)' : 'var(--border)',
-                    background: isActive ? 'rgba(104, 211, 145, 0.08)' : 'transparent',
+                    borderColor: isActive ? 'var(--primary)' : 'var(--border)',
+                    background: isActive ? 'rgba(31, 182, 166, 0.08)' : 'transparent',
                     color: isActive ? 'var(--secondary)' : 'var(--text-muted)',
                     cursor: 'pointer',
-                    fontSize: '0.8rem',
+                    fontSize: '0.78rem',
                     fontWeight: 600,
-                    transition: 'all 0.2s ease-in-out'
+                    transition: 'all 0.25s ease-in-out'
                   }}
                 >
                   {label}
@@ -305,9 +307,9 @@ export default function App() {
                       onClick={() => setActiveModalProject(p.id)}
                       className="btn"
                       style={{ 
-                        padding: '0.2rem 0.6rem', 
+                        padding: '0.25rem 0.75rem', 
                         fontSize: '0.65rem', 
-                        borderColor: 'rgba(104, 211, 145, 0.3)',
+                        borderColor: 'rgba(31, 182, 166, 0.25)',
                         color: 'var(--secondary)',
                         fontFamily: 'var(--font-mono)'
                       }}
@@ -316,7 +318,7 @@ export default function App() {
                     </button>
                   </div>
                   
-                  <h3 className="font-space" style={{ fontSize: '1.2rem', fontWeight: 700, color: '#fff', marginBottom: '0.6rem' }}>
+                  <h3 className="font-space" style={{ fontSize: '1.2rem', fontWeight: 700, color: 'var(--text-main)', marginBottom: '0.6rem' }}>
                     {p.title}
                   </h3>
                   
@@ -326,7 +328,7 @@ export default function App() {
                 </div>
 
                 <div>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem', marginBottom: '1rem' }}>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem', marginBottom: '1.25rem' }}>
                     {p.tags.map((tag) => (
                       <span key={tag} className="tag tag-blue" style={{ fontSize: '0.58rem', padding: '0.22rem 0.55rem' }}>
                         {tag}
@@ -346,7 +348,7 @@ export default function App() {
                           textDecoration: 'none', 
                           display: 'inline-flex', 
                           fontSize: '0.7rem', 
-                          padding: '0.35rem 0.8rem',
+                          padding: '0.4rem 0.9rem',
                           flexGrow: 1
                         }}
                       >
@@ -370,7 +372,7 @@ export default function App() {
         <div style={{
           position: 'fixed',
           inset: 0,
-          background: 'rgba(5, 5, 8, 0.85)',
+          background: 'rgba(11, 16, 38, 0.65)',
           backdropFilter: 'blur(12px)',
           display: 'flex',
           alignItems: 'center',
@@ -385,7 +387,8 @@ export default function App() {
             position: 'relative',
             maxHeight: '90vh',
             overflowY: 'auto',
-            background: 'var(--bg-dark)'
+            background: 'var(--bg-dark)',
+            border: '1px solid var(--border)'
           }}>
             <button 
               onClick={() => setActiveModalProject(null)}
@@ -413,7 +416,7 @@ export default function App() {
               }}>
                 {selectedProjForModal.label} Sandbox
               </span>
-              <h3 className="font-space" style={{ fontSize: '1.75rem', fontWeight: 800, color: '#fff', margin: 0 }}>
+              <h3 className="font-space" style={{ fontSize: '1.75rem', fontWeight: 800, color: 'var(--text-main)', margin: 0 }}>
                 {selectedProjForModal.title}
               </h3>
             </div>
@@ -422,9 +425,30 @@ export default function App() {
               {selectedProjForModal.desc}
             </p>
 
-            <ul style={{ color: 'var(--text-muted)', fontSize: '0.9rem', paddingLeft: '1.2rem', display: 'flex', flexDirection: 'column', gap: '0.4rem', marginBottom: '2rem' }}>
+            <ul style={{
+              color: 'var(--text-muted)',
+              fontSize: '0.9rem',
+              listStyleType: 'none',
+              paddingLeft: 0,
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '0.4rem',
+              marginBottom: '2rem'
+            }}>
               {selectedProjForModal.bullets.map((b, bIdx) => (
-                <li key={bIdx}>{b}</li>
+                <li key={bIdx} style={{ position: 'relative', paddingLeft: '1.25rem' }}>
+                  <span style={{
+                    position: 'absolute',
+                    left: 0,
+                    top: '0.55rem',
+                    width: '6px',
+                    height: '6px',
+                    borderRadius: '50%',
+                    background: 'var(--primary)',
+                    display: 'inline-block'
+                  }} />
+                  {b}
+                </li>
               ))}
             </ul>
             
@@ -440,12 +464,13 @@ export default function App() {
       )}
 
       <footer style={{
-        background: 'rgba(5, 5, 8, 0.95)',
+        background: 'var(--bg-darker)',
         borderTop: '1px solid var(--border)',
         padding: '2.5rem',
         textAlign: 'center',
         fontSize: '0.8rem',
-        color: 'var(--text-muted)'
+        color: 'var(--text-muted)',
+        fontFamily: 'var(--font-space)'
       }}>
         © {new Date().getFullYear()} Harsha Raj Kumar · Nashville, TN · Built with React & Vite.
       </footer>

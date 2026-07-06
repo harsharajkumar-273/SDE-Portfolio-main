@@ -14,10 +14,10 @@ export default function Hero() {
       gap: '1.5rem'
     }}>
       <div className="font-mono" style={{
-        background: 'rgba(99, 179, 237, 0.06)',
+        background: 'rgba(31, 182, 166, 0.08)',
         padding: '0.4rem 1rem',
         borderRadius: '20px',
-        border: '1px solid rgba(99, 179, 237, 0.25)',
+        border: '1px solid rgba(31, 182, 166, 0.2)',
         fontSize: '0.65rem',
         fontWeight: 600,
         color: 'var(--primary)',
@@ -32,8 +32,8 @@ export default function Hero() {
         fontSize: '3.8rem',
         fontWeight: 800,
         lineHeight: 1.1,
-        letterSpacing: '-.04em',
-        background: 'linear-gradient(135deg, #63b3ed 0%, #b794f4 50%, #f6c47f 100%)',
+        letterSpacing: '-.05em',
+        background: 'linear-gradient(135deg, #ffffff 0%, var(--primary) 100%)',
         WebkitBackgroundClip: 'text',
         WebkitTextFillColor: 'transparent',
         margin: '0.5rem 0'

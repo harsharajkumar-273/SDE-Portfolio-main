@@ -5,16 +5,16 @@ export default function Navbar() {
     color: 'var(--text-muted)',
     textDecoration: 'none',
     fontSize: '0.7rem',
-    fontWeight: 500,
-    fontFamily: 'var(--font-mono)',
+    fontWeight: 600,
+    fontFamily: 'var(--font-space)', // Sora display font
     textTransform: 'uppercase',
     letterSpacing: '0.08em',
-    transition: 'color 0.2s',
+    transition: 'color 0.25s ease',
     paddingBottom: '4px',
   };
 
   const handleMouseEnter = (e) => {
-    e.target.style.color = '#fff';
+    e.target.style.color = 'var(--primary)'; // GSSoC Teal hover
   };
 
   const handleMouseLeave = (e) => {
@@ -27,7 +27,7 @@ export default function Navbar() {
       top: 0,
       width: '100%',
       zIndex: 100,
-      background: 'rgba(5, 5, 8, 0.75)',
+      background: 'rgba(11, 16, 38, 0.85)',
       backdropFilter: 'blur(20px)',
       borderBottom: '1px solid var(--border)',
       padding: '1.25rem 2rem',
@@ -37,11 +37,11 @@ export default function Navbar() {
     }}>
       <a href="#about" style={{
         fontFamily: 'var(--font-space)',
-        fontWeight: 800,
+        fontWeight: 900,
         fontSize: '1.25rem',
-        letterSpacing: '-.03em',
+        letterSpacing: '-.05em',
         textDecoration: 'none',
-        background: 'linear-gradient(135deg, #63b3ed 0%, #b794f4 100%)',
+        background: 'linear-gradient(135deg, #ffffff 0%, var(--primary) 100%)',
         WebkitBackgroundClip: 'text',
         WebkitTextFillColor: 'transparent'
       }}>
