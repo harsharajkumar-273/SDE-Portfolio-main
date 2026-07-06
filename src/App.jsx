@@ -11,6 +11,7 @@ import ReCLMetrics from './components/ReCLMetrics';
 import NerveSegmentationSim from './components/NerveSegmentationSim';
 import Education from './components/Education';
 import Publications from './components/Publications';
+import NetflixRLSim from './components/NetflixRLSim';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('all');
@@ -120,6 +121,23 @@ export default function App() {
       ],
       simulator: <RadarSim />,
       categories: ['systems']
+    },
+    {
+      id: 'netflixrl',
+      title: 'Contextual Bandit Asynchronous Load Balancer',
+      label: 'Reinforcement Learning & Systems',
+      desc: 'An end-to-end prototype of an AI-driven load balancer designed to mitigate sudden thundering-herd traffic spikes (e.g. video streaming releases) by dynamically shifting routing weights using Linear Thompson Sampling (LinTS).',
+      bullets: [
+        'Formulated routing decisions as a Contextual Multi-Armed Bandit with a 6-dimensional context vector (load, latency, volatility).',
+        'Decoupled architecture: FastAPI data plane routing requests in under 0.1ms, plus an asynchronous background control plane worker updating Bayesian linear regression parameters every 150ms.',
+        'Integrated safety guardrails (Action Masking) setting a cluster node\'s routing weight to 0% if CPU load exceeds 85%.'
+      ],
+      tags: ['Thompson Sampling', 'FastAPI', 'RL Balancer'],
+      links: [
+        { label: 'Code', href: 'https://github.com/harsharajkumar-273/netflix-rl', primary: true }
+      ],
+      simulator: <NetflixRLSim />,
+      categories: ['ai', 'systems']
     }
   ];
 
