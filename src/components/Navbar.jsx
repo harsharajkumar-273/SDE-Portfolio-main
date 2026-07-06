@@ -1,24 +1,29 @@
 import React from 'react';
 
-export default function Navbar() {
+export default function Navbar({ activeSection, setActiveSection }) {
   const linkStyle = {
     color: 'var(--text-muted)',
-    textDecoration: 'none',
+    background: 'transparent',
+    border: 'none',
+    cursor: 'pointer',
     fontSize: '0.7rem',
     fontWeight: 500,
     fontFamily: 'var(--font-mono)',
     textTransform: 'uppercase',
     letterSpacing: '0.08em',
-    transition: 'color 0.2s'
+    transition: 'color 0.2s',
+    paddingBottom: '4px',
+    borderBottom: '2px solid transparent'
   };
 
-  const handleMouseEnter = (e) => {
-    e.target.style.color = '#fff';
-  };
-
-  const handleMouseLeave = (e) => {
-    e.target.style.color = 'var(--text-muted)';
-  };
+  const sections = [
+    { id: 'about', label: 'About' },
+    { id: 'experience', label: 'Experience' },
+    { id: 'education', label: 'Education' },
+    { id: 'projects', label: 'Projects' },
+    { id: 'publications', label: 'Publications' },
+    { id: 'skills', label: 'Skills' }
+  ];
 
   return (
     <nav style={{
@@ -34,24 +39,41 @@ export default function Navbar() {
       justifyContent: 'space-between',
       alignItems: 'center',
     }}>
-      <a href="#about" style={{
-        fontFamily: 'var(--font-space)',
-        fontWeight: 800,
-        fontSize: '1.1rem',
-        color: 'white',
-        letterSpacing: '-.03em',
-        textDecoration: 'none',
-      }}>
+      <button 
+        onClick={() => setActiveSection('about')}
+        style={{
+          background: 'transparent',
+          border: 'none',
+          cursor: 'pointer',
+          fontFamily: 'var(--font-space)',
+          fontWeight: 800,
+          fontSize: '1.1rem',
+          color: 'white',
+          letterSpacing: '-.03em',
+        }}
+      >
         H<span style={{ color: 'var(--primary)' }}>.</span>RK
-      </a>
+      </button>
       
       <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
-        <a href="#about" style={linkStyle} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>About</a>
-        <a href="#experience" style={linkStyle} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>Experience</a>
-        <a href="#education" style={linkStyle} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>Education</a>
-        <a href="#projects" style={linkStyle} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>Projects</a>
-        <a href="#publications" style={linkStyle} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>Publications</a>
-        <a href="#skills" style={linkStyle} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>Skills</a>
+        {sections.map((sec) => {
+          const isActive = activeSection === sec.id;
+          return (
+            <button
+              key={sec.id}
+              onClick={() => setActiveSection(sec.id)}
+              onMouseEnter={(e) => { if (!isActive) e.target.style.color = '#fff'; }}
+              onMouseLeave={(e) => { if (!isActive) e.target.style.color = 'var(--text-muted)'; }}
+              style={{
+                ...linkStyle,
+                color: isActive ? '#fff' : 'var(--text-muted)',
+                borderBottom: isActive ? '2px solid var(--primary)' : '2px solid transparent',
+              }}
+            >
+              {sec.label}
+            </button>
+          );
+        })}
       </div>
     </nav>
   );

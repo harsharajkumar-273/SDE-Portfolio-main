@@ -13,6 +13,7 @@ import Education from './components/Education';
 import Publications from './components/Publications';
 
 export default function App() {
+  const [activeSection, setActiveSection] = useState('about');
   const [activeTab, setActiveTab] = useState('all');
 
   const projects = [
@@ -220,104 +221,117 @@ export default function App() {
 
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-      <Navbar />
+      <Navbar activeSection={activeSection} setActiveSection={setActiveSection} />
       
-      <main style={{ flexGrow: 1, paddingBottom: '6rem' }}>
-        <Hero />
+      <main style={{ flexGrow: 1, paddingBottom: '4rem' }}>
         
-        <Experience />
+        {activeSection === 'about' && (
+          <Hero onNextSection={() => setActiveSection('experience')} />
+        )}
         
-        <Education />
+        {activeSection === 'experience' && (
+          <Experience />
+        )}
         
-        {/* Interactive Simulators Section */}
-        <section id="projects" className="container" style={{ marginTop: '4rem' }}>
-          <h2 className="font-space" style={{
-            fontSize: '2rem',
-            fontWeight: 700,
-            marginBottom: '1rem',
-            textAlign: 'center',
-            background: 'linear-gradient(to right, #ffffff, var(--text-muted))',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent'
-          }}>
-            Interactive Systems Simulations
-          </h2>
-          <p style={{
-            textAlign: 'center',
-            color: 'var(--text-muted)',
-            fontSize: '1rem',
-            marginBottom: '2rem',
-            maxWidth: '600px',
-            margin: '0 auto 2rem auto'
-          }}>
-            Below are live interactive widgets demonstrating my core engineering implementations. Play with controls to trigger simulated scenarios.
-          </p>
+        {activeSection === 'education' && (
+          <Education />
+        )}
+        
+        {activeSection === 'projects' && (
+          <section id="projects" className="container" style={{ marginTop: '2rem' }}>
+            <h2 className="font-space" style={{
+              fontSize: '2rem',
+              fontWeight: 700,
+              marginBottom: '1rem',
+              textAlign: 'center',
+              background: 'linear-gradient(to right, #ffffff, var(--text-muted))',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent'
+            }}>
+              Interactive Systems Simulations
+            </h2>
+            <p style={{
+              textAlign: 'center',
+              color: 'var(--text-muted)',
+              fontSize: '1rem',
+              marginBottom: '2rem',
+              maxWidth: '600px',
+              margin: '0 auto 2rem auto'
+            }}>
+              Below are live interactive widgets demonstrating my core engineering implementations. Play with controls to trigger simulated scenarios.
+            </p>
 
-          {/* Tab Navigation */}
-          <div style={{
-            display: 'flex',
-            justifyContent: 'center',
-            gap: '0.8rem',
-            marginBottom: '3rem',
-            flexWrap: 'wrap'
-          }}>
-            {['all', 'ai', 'systems'].map((tab) => {
-              const label = tab === 'all' ? 'All Projects' : tab === 'ai' ? 'AI & Robotics' : 'Systems & Infrastructure';
-              const isActive = activeTab === tab;
-              return (
-                <button
-                  key={tab}
-                  onClick={() => setActiveTab(tab)}
-                  className="font-space"
-                  style={{
-                    padding: '0.5rem 1.2rem',
-                    borderRadius: '20px',
-                    border: '1px solid',
-                    borderColor: isActive ? 'var(--secondary)' : 'var(--border)',
-                    background: isActive ? 'rgba(52, 211, 153, 0.08)' : 'transparent',
-                    color: isActive ? 'var(--secondary)' : 'var(--text-muted)',
-                    cursor: 'pointer',
-                    fontSize: '0.8rem',
-                    fontWeight: 600,
-                    transition: 'all 0.2s ease-in-out'
-                  }}
-                >
-                  {label}
-                </button>
-              );
-            })}
-          </div>
+            {/* Tab Navigation */}
+            <div style={{
+              display: 'flex',
+              justifyContent: 'center',
+              gap: '0.8rem',
+              marginBottom: '3rem',
+              flexWrap: 'wrap'
+            }}>
+              {['all', 'ai', 'systems'].map((tab) => {
+                const label = tab === 'all' ? 'All Projects' : tab === 'ai' ? 'AI & Robotics' : 'Systems & Infrastructure';
+                const isActive = activeTab === tab;
+                return (
+                  <button
+                    key={tab}
+                    onClick={() => setActiveTab(tab)}
+                    className="font-space"
+                    style={{
+                      padding: '0.5rem 1.2rem',
+                      borderRadius: '20px',
+                      border: '1px solid',
+                      borderColor: isActive ? 'var(--secondary)' : 'var(--border)',
+                      background: isActive ? 'rgba(104, 211, 145, 0.08)' : 'transparent',
+                      color: isActive ? 'var(--secondary)' : 'var(--text-muted)',
+                      cursor: 'pointer',
+                      fontSize: '0.8rem',
+                      fontWeight: 600,
+                      transition: 'all 0.2s ease-in-out'
+                    }}
+                  >
+                    {label}
+                  </button>
+                );
+              })}
+            </div>
 
-          <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '2.5rem'
-          }}>
-            {filteredProjects.map((p, idx) => (
-              <React.Fragment key={p.id}>
-                {p.element}
-                {idx < filteredProjects.length - 1 && (
-                  <hr style={{ border: 'none', borderTop: '1px solid var(--border)', margin: '1.5rem 0' }} />
-                )}
-              </React.Fragment>
-            ))}
-          </div>
-        </section>
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '2.5rem'
+            }}>
+              {filteredProjects.map((p, idx) => (
+                <React.Fragment key={p.id}>
+                  {p.element}
+                  {idx < filteredProjects.length - 1 && (
+                    <hr style={{ border: 'none', borderTop: '1px solid var(--border)', margin: '1.5rem 0' }} />
+                  )}
+                </React.Fragment>
+              ))}
+            </div>
+          </section>
+        )}
         
-        <Publications />
+        {activeSection === 'publications' && (
+          <Publications />
+        )}
         
-        <Skills />
+        {activeSection === 'skills' && (
+          <Skills />
+        )}
       </main>
 
       <footer style={{
-        background: 'rgba(7, 8, 11, 0.9)',
+        background: 'rgba(5, 5, 8, 0.95)',
         borderTop: '1px solid var(--border)',
         padding: '2rem',
         textAlign: 'center',
         fontSize: '0.85rem',
-        color: 'var(--text-muted)'
+        color: 'var(--text-muted)',
+        zIndex: 10
       }}>
-        © {new Date().getFullYear()} Harsha Raj Kumar. Built with React, Vite, and Lucide Icons.
+        © {new Date().getFullYear()} Harsha Raj Kumar. Nashville, TN. Built with React & Vite.
       </footer>
     </div>
   );
