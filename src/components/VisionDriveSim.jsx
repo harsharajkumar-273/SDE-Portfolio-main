@@ -216,25 +216,25 @@ export default function VisionDriveSim() {
           }}>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>SPEED</span>
-              <span style={{ fontSize: '1rem', fontWeight: 'bold', fontFamily: 'monospace', color: '#fff' }}>
+              <span style={{ fontSize: '1rem', fontWeight: 'bold', fontFamily: 'monospace', color: 'var(--text-main)' }}>
                 {isPlaying ? speed.toFixed(1) : '0.0'} m/s
               </span>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>STEER ANGLE</span>
-              <span style={{ fontSize: '1rem', fontWeight: 'bold', fontFamily: 'monospace', color: '#fff' }}>
+              <span style={{ fontSize: '1rem', fontWeight: 'bold', fontFamily: 'monospace', color: 'var(--text-main)' }}>
                 {isPlaying ? steer.toFixed(1) : '0.0'}°
               </span>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>LANE DEV.</span>
-              <span style={{ fontSize: '1rem', fontWeight: 'bold', fontFamily: 'monospace', color: laneOffset > 0.4 ? 'var(--accent-red)' : '#fff' }}>
+              <span style={{ fontSize: '1rem', fontWeight: 'bold', fontFamily: 'monospace', color: laneOffset > 0.4 ? 'var(--accent-red)' : 'var(--text-main)' }}>
                 {isPlaying ? laneOffset.toFixed(2) : '0.00'} m
               </span>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>STEP REWARD</span>
-              <span style={{ fontSize: '1rem', fontWeight: 'bold', fontFamily: 'monospace', color: reward < 0.5 ? 'var(--accent-orange)' : '#fff' }}>
+              <span style={{ fontSize: '1rem', fontWeight: 'bold', fontFamily: 'monospace', color: reward < 0.5 ? 'var(--accent-orange)' : 'var(--text-main)' }}>
                 {isPlaying ? reward.toFixed(2) : '0.00'}
               </span>
             </div>

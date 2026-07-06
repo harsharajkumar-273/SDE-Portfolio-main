@@ -18,7 +18,7 @@ export default function NerveSegmentationSim() {
       borderRadius: '12px'
     }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <h4 className="font-space" style={{ fontSize: '1rem', fontWeight: 700, margin: 0, color: '#fff' }}>
+        <h4 className="font-space" style={{ fontSize: '1rem', fontWeight: 700, margin: 0, color: 'var(--text-main)' }}>
           U-Net Real-Time Segmenter
         </h4>
         <span style={{ fontSize: '0.75rem', padding: '0.2rem 0.5rem', borderRadius: '12px', background: 'rgba(255, 107, 107, 0.1)', color: '#ff6b6b', fontWeight: 600 }}>
@@ -57,7 +57,7 @@ export default function NerveSegmentationSim() {
           
           {/* Highlight indicator */}
           {nerveRadius > 15 && (
-            <text x="210" y="93" fill="#fff" fontSize="8" textAnchor="middle" fontFamily="var(--font-space)" fontWeight="700">Nerve</text>
+            <text x="210" y="93" fill="var(--text-main)" fontSize="8" textAnchor="middle" fontFamily="var(--font-space)" fontWeight="700">Nerve</text>
           )}
         </svg>
 
@@ -78,7 +78,7 @@ export default function NerveSegmentationSim() {
       <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.8rem', color: 'var(--text-muted)' }}>
           <span>Confidence Threshold</span>
-          <span style={{ color: '#fff', fontWeight: 600 }}>{threshold.toFixed(2)}</span>
+          <span style={{ color: 'var(--text-main)', fontWeight: 600 }}>{threshold.toFixed(2)}</span>
         </div>
         <input
           type="range"

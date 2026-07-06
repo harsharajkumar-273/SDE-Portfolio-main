@@ -65,7 +65,7 @@ export default function Experience() {
                 background: 'var(--primary)',
                 display: 'inline-block'
               }} />
-              Designed and evaluated <strong style={{ color: '#fff' }}>ReCL / DAC-Learn</strong>, a novel self-supervised ultrasound representation learning model for processing high-frequency medical sensor streams, evaluated against 4 baselines on the PICMUS benchmark.
+              Designed and evaluated <strong style={{ color: 'var(--text-main)' }}>ReCL / DAC-Learn</strong>, a novel self-supervised ultrasound representation learning model for processing high-frequency medical sensor streams, evaluated against 4 baselines on the PICMUS benchmark.
             </li>
             <li style={{ position: 'relative', paddingLeft: '1.25rem' }}>
               <span style={{
@@ -78,7 +78,7 @@ export default function Experience() {
                 background: 'var(--primary)',
                 display: 'inline-block'
               }} />
-              Achieved <strong style={{ color: '#fff' }}>85% improvement</strong> in image contrast (CNR: 3.5+ dB) and outperformed CycleGAN by <strong style={{ color: '#fff' }}>20%</strong> on clinical cardiac datasets with zero paired training samples.
+              Achieved <strong style={{ color: 'var(--text-main)' }}>85% improvement</strong> in image contrast (CNR: 3.5+ dB) and outperformed CycleGAN by <strong style={{ color: 'var(--text-main)' }}>20%</strong> on clinical cardiac datasets with zero paired training samples.
             </li>
             <li style={{ position: 'relative', paddingLeft: '1.25rem' }}>
               <span style={{
@@ -91,7 +91,7 @@ export default function Experience() {
                 background: 'var(--primary)',
                 display: 'inline-block'
               }} />
-              Optimized multi-GPU training throughput, reducing training latency by <strong style={{ color: '#fff' }}>40%</strong> via custom data loader pipelines built to preprocess, augment, and cache 10,000+ high-resolution images.
+              Optimized multi-GPU training throughput, reducing training latency by <strong style={{ color: 'var(--text-main)' }}>40%</strong> via custom data loader pipelines built to preprocess, augment, and cache 10,000+ high-resolution images.
             </li>
           </ul>
         </div>
@@ -139,7 +139,7 @@ export default function Experience() {
                 background: 'var(--primary)',
                 display: 'inline-block'
               }} />
-              Engineered <strong style={{ color: '#fff' }}>Proofdesk</strong>, a collaborative Web IDE and compilation sandbox, reducing book compilation latency by <strong style={{ color: '#fff' }}>72%</strong> via client-side WebAssembly (Pyodide) compilation.
+              Engineered <strong style={{ color: 'var(--text-main)' }}>Proofdesk</strong>, a collaborative Web IDE and compilation sandbox, reducing book compilation latency by <strong style={{ color: 'var(--text-main)' }}>72%</strong> via client-side WebAssembly (Pyodide) compilation.
             </li>
             <li style={{ position: 'relative', paddingLeft: '1.25rem' }}>
               <span style={{

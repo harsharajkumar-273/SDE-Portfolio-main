@@ -98,7 +98,7 @@ export default function MathMindSim() {
             </div>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)' }}>KL DIV</span>
-              <span style={{ fontSize: '1.1rem', fontWeight: 'bold', fontFamily: 'monospace', color: '#fff' }}>
+              <span style={{ fontSize: '1.1rem', fontWeight: 'bold', fontFamily: 'monospace', color: 'var(--text-main)' }}>
                 {trainStats.klDiv}
               </span>
             </div>
@@ -107,7 +107,7 @@ export default function MathMindSim() {
           {/* Reasoning Progress bar */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem', marginTop: '0.2rem' }}>
             <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)' }}>ACTIVE REASONING STEP</span>
-            <div style={{ fontSize: '0.8rem', fontWeight: '600', color: '#fff', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+            <div style={{ fontSize: '0.8rem', fontWeight: '600', color: 'var(--text-main)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
               {reasoningSteps[stepIdx].text}
             </div>
           </div>

@@ -82,7 +82,7 @@ export default function PulseStreamSim() {
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.75rem' }}>
             <span style={{ color: 'var(--text-muted)' }}>BROKER PARTITION KEYS:</span>
-            <span style={{ color: '#fff', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.2rem' }}>
+            <span style={{ color: 'var(--text-main)', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.2rem' }}>
               <Zap size={12} style={{ color: 'var(--secondary)' }} /> deviceId
             </span>
           </div>

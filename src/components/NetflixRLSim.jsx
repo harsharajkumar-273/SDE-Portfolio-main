@@ -134,7 +134,7 @@ export default function NetflixRLSim() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.8rem' }}>
               <span style={{ color: 'var(--text-muted)' }}>INCOMING TRAFFIC (RPS)</span>
-              <span style={{ fontWeight: 'bold', color: trafficVolume > 160 ? 'var(--accent-red)' : '#fff' }}>
+              <span style={{ fontWeight: 'bold', color: trafficVolume > 160 ? 'var(--accent-red)' : 'var(--text-main)' }}>
                 {trafficVolume} Requests/sec
               </span>
             </div>
@@ -164,10 +164,10 @@ export default function NetflixRLSim() {
                   alignItems: 'center'
                 }}>
                   <div>
-                    <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#fff' }}>{s.name}</span>
+                    <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--text-main)' }}>{s.name}</span>
                     <div style={{ display: 'flex', gap: '0.6rem', fontSize: '0.7rem', color: 'var(--text-muted)', marginTop: '0.1rem' }}>
-                      <span>CPU: <strong style={{ color: s.cpu > 80 ? 'var(--accent-red)' : '#fff' }}>{s.cpu}%</strong></span>
-                      <span>Latency: <strong style={{ color: hasBreachedSLA ? 'var(--accent-red)' : '#fff' }}>{s.latency}ms</strong></span>
+                      <span>CPU: <strong style={{ color: s.cpu > 80 ? 'var(--accent-red)' : 'var(--text-main)' }}>{s.cpu}%</strong></span>
+                      <span>Latency: <strong style={{ color: hasBreachedSLA ? 'var(--accent-red)' : 'var(--text-main)' }}>{s.latency}ms</strong></span>
                     </div>
                   </div>
                   <div style={{ textAlign: 'right' }}>

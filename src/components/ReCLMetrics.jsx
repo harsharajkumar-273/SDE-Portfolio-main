@@ -19,7 +19,7 @@ export default function ReCLMetrics() {
       borderRadius: '12px'
     }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <h4 className="font-space" style={{ fontSize: '1rem', fontWeight: 700, margin: 0, color: '#fff' }}>
+        <h4 className="font-space" style={{ fontSize: '1rem', fontWeight: 700, margin: 0, color: 'var(--text-main)' }}>
           PICMUS Sim-to-Real Benchmark
         </h4>
         <span style={{ fontSize: '0.75rem', padding: '0.2rem 0.5rem', borderRadius: '12px', background: 'rgba(52, 211, 153, 0.1)', color: '#34d399', fontWeight: 600 }}>
@@ -31,7 +31,7 @@ export default function ReCLMetrics() {
         {benchmarks.map((item, idx) => (
           <div key={idx} style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem' }}>
-              <span style={{ color: idx === 0 ? '#fff' : 'var(--text-muted)', fontWeight: idx === 0 ? 600 : 400 }}>
+              <span style={{ color: idx === 0 ? 'var(--text-main)' : 'var(--text-muted)', fontWeight: idx === 0 ? 600 : 400 }}>
                 {item.name}
               </span>
               <span style={{ color: item.color, fontWeight: 700 }}>
