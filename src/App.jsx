@@ -9,6 +9,8 @@ import VisionDriveSim from './components/VisionDriveSim';
 import RadarSim from './components/RadarSim';
 import ReCLMetrics from './components/ReCLMetrics';
 import NerveSegmentationSim from './components/NerveSegmentationSim';
+import Education from './components/Education';
+import Publications from './components/Publications';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('all');
@@ -225,6 +227,8 @@ export default function App() {
         
         <Experience />
         
+        <Education />
+        
         {/* Interactive Simulators Section */}
         <section id="projects" className="container" style={{ marginTop: '4rem' }}>
           <h2 className="font-space" style={{
@@ -299,6 +303,8 @@ export default function App() {
             ))}
           </div>
         </section>
+        
+        <Publications />
         
         <Skills />
       </main>
