@@ -27,7 +27,7 @@ export default function Navbar() {
       top: 0,
       width: '100%',
       zIndex: 100,
-      background: 'rgba(11, 16, 38, 0.85)',
+      background: 'rgba(248, 250, 252, 0.85)',
       backdropFilter: 'blur(20px)',
       borderBottom: '1px solid var(--border)',
       padding: '1.25rem 2rem',
@@ -41,7 +41,7 @@ export default function Navbar() {
         fontSize: '1.25rem',
         letterSpacing: '-.05em',
         textDecoration: 'none',
-        background: 'linear-gradient(135deg, #ffffff 0%, var(--primary) 100%)',
+        background: 'linear-gradient(135deg, var(--text-main) 0%, var(--primary) 100%)',
         WebkitBackgroundClip: 'text',
         WebkitTextFillColor: 'transparent'
       }}>

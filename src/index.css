@@ -1,22 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 :root {
-  --bg-darker: #0B1026;    /* GSSoC deep navy blue base */
-  --bg-dark: #0f172a;      /* Slate 900 for solid panels */
-  --bg-card: rgba(15, 23, 42, 0.45); /* Translucent glass card background */
-  --border: rgba(31, 182, 166, 0.15); /* GSSoC teal border */
-  --border-hover: rgba(31, 182, 166, 0.45);
+  --bg-darker: #f8fafc;    /* Soft gray background from Stripe/Vercel light theme */
+  --bg-dark: #ffffff;      /* Pure white card backgrounds */
+  --bg-card: #ffffff;
+  --border: rgba(31, 182, 166, 0.12); /* Thin slate border with subtle GSSoC teal tint */
+  --border-hover: rgba(31, 182, 166, 0.35);
   
   --primary: #1FB6A6;      /* GSSoC bright teal brand accent */
-  --primary-glow: rgba(31, 182, 166, 0.25);
-  --secondary: #2EC4B6;    /* Neon mint accent */
-  --secondary-glow: rgba(46, 196, 182, 0.25);
-  --accent-purple: #a78bfa; /* High-contrast violet secondary highlights */
-  --accent-gold: #f59e0b;
-  --accent-red: #ef4444;
+  --primary-glow: rgba(31, 182, 166, 0.08);
+  --secondary: #0d9488;    /* Deep teal for high-contrast SDE body metrics */
+  --secondary-glow: rgba(13, 148, 136, 0.08);
+  --accent-purple: #7c3aed; /* Glowing violet secondary highlights */
+  --accent-gold: #d97706;
+  --accent-red: #dc2626;
   
-  --text-main: #f8fafc;    /* High-contrast slate white main text */
-  --text-muted: #9aa3bf;   /* Sora-muted gray-blue from GSSoC */
+  --text-main: #0B1026;    /* GSSoC deep navy blue text for high-contrast headers */
+  --text-muted: #6e7a99;   /* Muted slate-blue from GSSoC */
   
   --font-outfit: 'Inter', sans-serif;
   --font-space: 'Sora', sans-serif; 
@@ -25,14 +25,9 @@
   font-family: var(--font-outfit);
   line-height: 1.6;
   font-weight: 400;
-  color-scheme: dark;
+  color-scheme: light;
   background-color: var(--bg-darker);
   color: var(--text-main);
-  
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 * {
@@ -46,10 +41,10 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   background-color: var(--bg-darker);
-  /* Rich atmospheric ambient glows - GSSoC layout */
+  /* Floating ambient gradients - inspired by GSSoC background glows */
   background-image: 
-    radial-gradient(circle at 80% 15%, rgba(31, 182, 166, 0.14) 0%, transparent 45%),
-    radial-gradient(circle at 15% 75%, rgba(124, 58, 237, 0.1) 0%, transparent 45%);
+    radial-gradient(circle at 80% 15%, rgba(31, 182, 166, 0.05) 0%, transparent 45%),
+    radial-gradient(circle at 15% 75%, rgba(124, 58, 237, 0.03) 0%, transparent 45%);
   background-attachment: fixed;
 }
 
@@ -59,8 +54,8 @@ body::before {
   position: fixed;
   inset: 0;
   background-image: 
-    linear-gradient(rgba(31, 182, 166, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(31, 182, 166, 0.04) 1px, transparent 1px);
+    linear-gradient(rgba(31, 182, 166, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(31, 182, 166, 0.035) 1px, transparent 1px);
   background-size: 64px 64px;
   z-index: 0;
   pointer-events: none;
@@ -75,21 +70,19 @@ body::before {
   background: var(--bg-darker);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(31, 182, 166, 0.2);
+  background: rgba(31, 182, 166, 0.15);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primary);
 }
 
-/* Glassmorphism Card Utility - Translucent GSSoC panels */
+/* Glassmorphism Card Utility - White glass layout */
 .glass-card {
   background: var(--bg-card);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--border);
   border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(11, 16, 38, 0.35);
+  box-shadow: 0 4px 18px rgba(11, 16, 38, 0.03);
   transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
   position: relative;
   overflow: hidden;
@@ -99,7 +92,7 @@ body::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(31, 182, 166, 0.04) 0%, transparent 60%);
+  background: linear-gradient(135deg, rgba(31, 182, 166, 0.02) 0%, transparent 60%);
   opacity: 0;
   transition: opacity 0.35s;
   pointer-events: none;
@@ -108,7 +101,7 @@ body::before {
 .glass-card:hover {
   border-color: var(--border-hover);
   transform: translateY(-4px);
-  box-shadow: 0 20px 48px rgba(11, 16, 38, 0.5), 0 0 0 1px rgba(31, 182, 166, 0.08);
+  box-shadow: 0 16px 36px rgba(11, 16, 38, 0.07), 0 0 0 1px rgba(31, 182, 166, 0.05);
 }
 
 .glass-card:hover::before {
@@ -140,17 +133,17 @@ body::before {
   font-size: 2rem;
   font-weight: 800;
   letter-spacing: -0.04em;
-  color: #ffffff;
+  color: var(--text-main);
   margin-bottom: 2.5rem;
 }
 
-/* Button styles - Rounded GSSoC pills */
+/* Button styles - GSSoC dark primary button layout */
 .btn {
   font-family: var(--font-space);
   font-weight: 600;
   font-size: 0.8rem;
   padding: 0.6rem 1.25rem;
-  border-radius: 9999px;
+  border-radius: 9999px; /* Rounded pill style buttons */
   border: 1px solid var(--border);
   background: transparent;
   color: var(--text-main);
@@ -164,30 +157,30 @@ body::before {
 
 .btn:hover {
   border-color: var(--border-hover);
-  background: rgba(31, 182, 166, 0.08);
+  background: rgba(31, 182, 166, 0.04);
   transform: translateY(-1px);
 }
 
 .btn-primary {
-  background: #ffffff;
-  color: #0B1026;
+  background: var(--text-main); /* Deep navy base */
+  color: #ffffff;
   border: none;
 }
 
 .btn-primary:hover {
-  background: var(--primary);
-  color: #0B1026;
-  box-shadow: 0 8px 24px rgba(31, 182, 166, 0.35);
+  background: var(--primary); /* Bright GSSoC teal on hover */
+  color: #ffffff;
+  box-shadow: 0 8px 24px rgba(31, 182, 166, 0.25);
   transform: translateY(-2px);
 }
 
 .btn-secondary {
-  border: 1.5px solid rgba(46, 196, 182, 0.3);
+  border: 1.5px solid rgba(13, 148, 136, 0.3);
   color: var(--secondary);
 }
 
 .btn-secondary:hover {
-  background: rgba(46, 196, 182, 0.08);
+  background: rgba(13, 148, 136, 0.04);
   border-color: var(--secondary);
   transform: translateY(-2px);
 }
@@ -201,10 +194,8 @@ body::before {
   overflow: hidden;
   margin: 3rem auto;
   background: var(--bg-card);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
   max-width: 850px;
-  box-shadow: 0 8px 32px rgba(11, 16, 38, 0.25);
+  box-shadow: 0 4px 18px rgba(11, 16, 38, 0.02);
 }
 
 .stat {
@@ -226,7 +217,7 @@ body::before {
   font-size: 2.2rem;
   font-weight: 800;
   letter-spacing: -0.04em;
-  color: #ffffff;
+  color: var(--text-main);
   line-height: 1;
 }
 
@@ -257,9 +248,9 @@ body::before {
 }
 
 .tag-blue {
-  color: var(--primary);
-  background: rgba(31, 182, 166, 0.08);
-  border: 1px solid rgba(31, 182, 166, 0.15);
+  color: var(--secondary);
+  background: rgba(31, 182, 166, 0.05);
+  border: 1px solid rgba(31, 182, 166, 0.1);
 }
 
 @media(max-width: 768px) {
@@ -292,7 +283,7 @@ body::before {
 @keyframes pulse {
   0% {
     transform: scale(0.95);
-    box-shadow: 0 0 0 0 rgba(31, 182, 166, 0.6);
+    box-shadow: 0 0 0 0 rgba(31, 182, 166, 0.5);
   }
   70% {
     transform: scale(1);
