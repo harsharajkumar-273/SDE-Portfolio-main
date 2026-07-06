@@ -12,12 +12,12 @@ export default function Publications() {
       desc: 'Engineered a multi-model NLP pipeline utilizing Mistral 7B + LoRA to generate creative narrative summaries from dense academic research PDFs, yielding a 15% ROUGE/BLEU score improvement over baselines.',
     },
     {
-      title: 'Hybrid API Vulnerability Detection System using ML Classification',
+      title: 'An Integrated GCN–GAT–AE Framework for Robust Anomaly Detection in Industrial IoT Environments',
       type: 'IEEE Published Paper',
       date: '2025',
       badge: 'IEEE Published',
       color: '#34d399',
-      desc: 'Developed a hybrid machine learning classification framework to automate structural endpoint discovery and identify authentication flaws across RESTful APIs, combining static AST analysis with runtime telemetry.',
+      desc: 'Developed an integrated deep learning framework combining Graph Convolutional Networks (GCN), Graph Attention Networks (GAT), and Autoencoders (AE) for robust and noise-resilient anomaly detection in Industrial IoT sensor networks.',
       link: 'https://ieeexplore.ieee.org/abstract/document/11399172'
     },
     {
