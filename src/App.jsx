@@ -130,7 +130,7 @@ export default function App() {
                   <a href="https://huggingface.co/spaces/harsharajkumar273/cleanops-openenv" target="_blank" rel="noreferrer" className="btn btn-secondary" style={{ textDecoration: 'none', display: 'inline-flex', fontSize: '0.8rem' }}>
                     Launch Space
                   </a>
-                  <a href="https://github.com/harsharajkumar-273/cleanops-openenv" target="_blank" rel="noreferrer" className="btn" style={{ textDecoration: 'none', display: 'inline-flex', fontSize: '0.8rem' }}>
+                  <a href="https://github.com/harsharajkumar-273/cleanops" target="_blank" rel="noreferrer" className="btn" style={{ textDecoration: 'none', display: 'inline-flex', fontSize: '0.8rem' }}>
                     View Source Code
                   </a>
                 </div>
