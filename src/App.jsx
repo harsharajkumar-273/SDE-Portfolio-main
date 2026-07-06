@@ -63,11 +63,14 @@ export default function App() {
                 <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 1.6, marginBottom: '1.2rem' }}>
                   A multi-camera perception and continuous control pipeline. It logs high-frequency trajectory data (3 perspective views + action parameters) during manual teleoperation and feeds it into behavioral cloning and BEV-projector networks.
                 </p>
-                <ul style={{ color: 'var(--text-muted)', fontSize: '0.9rem', paddingLeft: '1.2rem', display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
+                <ul style={{ color: 'var(--text-muted)', fontSize: '0.9rem', paddingLeft: '1.2rem', display: 'flex', flexDirection: 'column', gap: '0.4rem', marginBottom: '1.2rem' }}>
                   <li>Trained supervised <strong>BEV spatial projectors</strong> to map perspective images to orthographic coordinates.</li>
                   <li>Deployed <strong>Behavioral Cloning policy</strong> directly imitating human demonstrator control actions.</li>
                   <li>Evaluated control agent robustness under sensor noise (fog, rain, night modes, lens mud).</li>
                 </ul>
+                <a href="https://github.com/harsharajkumar-273/vision-drive-rl" target="_blank" rel="noreferrer" className="btn btn-secondary" style={{ textDecoration: 'none', display: 'inline-flex', fontSize: '0.8rem' }}>
+                  View Source Code
+                </a>
               </div>
               <VisionDriveSim />
             </div>
@@ -90,11 +93,14 @@ export default function App() {
                 <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 1.6, marginBottom: '1.2rem' }}>
                   A resilient crisis command platform. It models urban infrastructure as a spatial PostGIS graph and computes safest routes to affected sectors by dynamically penalizing hazard edges based on their decay rates.
                 </p>
-                <ul style={{ color: 'var(--text-muted)', fontSize: '0.9rem', paddingLeft: '1.2rem', display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
+                <ul style={{ color: 'var(--text-muted)', fontSize: '0.9rem', paddingLeft: '1.2rem', display: 'flex', flexDirection: 'column', gap: '0.4rem', marginBottom: '1.2rem' }}>
                   <li>Integrated <strong>custom Dijkstra weights</strong> scaled by exponential decay offsets exp(-1.5t).</li>
                   <li>Implemented real-time Socket.io responder updates triggered by background telemetry listeners.</li>
                   <li>Maintained system uptime via asynchronous ML workers decoupling graph search from telemetry ingestion.</li>
                 </ul>
+                <a href="https://github.com/harsharajkumar-273/ARIA" target="_blank" rel="noreferrer" className="btn btn-secondary" style={{ textDecoration: 'none', display: 'inline-flex', fontSize: '0.8rem' }}>
+                  View Source Code
+                </a>
               </div>
             </div>
 
@@ -120,9 +126,14 @@ export default function App() {
                   <li>Formulated custom <strong>reward shaping mechanics</strong> to provide dense step-level partial credits.</li>
                   <li>Created validation loops checking schema correctness against oracle states.</li>
                 </ul>
-                <a href="https://huggingface.co/spaces/harsharajkumar273/cleanops-openenv" target="_blank" rel="noreferrer" className="btn btn-secondary" style={{ textDecoration: 'none', display: 'inline-flex', fontSize: '0.8rem' }}>
-                  Launch Space on Hugging Face
-                </a>
+                <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap' }}>
+                  <a href="https://huggingface.co/spaces/harsharajkumar273/cleanops-openenv" target="_blank" rel="noreferrer" className="btn btn-secondary" style={{ textDecoration: 'none', display: 'inline-flex', fontSize: '0.8rem' }}>
+                    Launch Space
+                  </a>
+                  <a href="https://github.com/harsharajkumar-273/cleanops-openenv" target="_blank" rel="noreferrer" className="btn" style={{ textDecoration: 'none', display: 'inline-flex', fontSize: '0.8rem' }}>
+                    View Source Code
+                  </a>
+                </div>
               </div>
               <CleanOpsSim />
             </div>
@@ -145,11 +156,14 @@ export default function App() {
                 <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 1.6, marginBottom: '1.2rem' }}>
                   A C++20 real-time deduplication engine optimized for cleaning continuous telemetry streams. Minimizes database storage footprints by discarding redundant frames before long-term storage or model training.
                 </p>
-                <ul style={{ color: 'var(--text-muted)', fontSize: '0.9rem', paddingLeft: '1.2rem', display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
+                <ul style={{ color: 'var(--text-muted)', fontSize: '0.9rem', paddingLeft: '1.2rem', display: 'flex', flexDirection: 'column', gap: '0.4rem', marginBottom: '1.2rem' }}>
                   <li>Leveraged <strong>AVX2 SIMD hardware vectorization</strong> to parallelize signature generation.</li>
                   <li>Applied <strong>Locality-Sensitive Hashing (LSH)</strong> and MinHash functions for O(1) duplicates scanning.</li>
                   <li>Sustained over 240,000 requests per second under peak sensor stream ingestion.</li>
                 </ul>
+                <a href="https://github.com/harsharajkumar-273/Repost-Radar" target="_blank" rel="noreferrer" className="btn btn-secondary" style={{ textDecoration: 'none', display: 'inline-flex', fontSize: '0.8rem' }}>
+                  View Source Code
+                </a>
               </div>
             </div>
 
