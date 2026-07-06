@@ -68,7 +68,7 @@ export default function App() {
                   <li>Deployed <strong>Behavioral Cloning policy</strong> directly imitating human demonstrator control actions.</li>
                   <li>Evaluated control agent robustness under sensor noise (fog, rain, night modes, lens mud).</li>
                 </ul>
-                <a href="https://github.com/harsharajkumar-273/vision-drive-rl" target="_blank" rel="noreferrer" className="btn btn-secondary" style={{ textDecoration: 'none', display: 'inline-flex', fontSize: '0.8rem' }}>
+                <a href="https://github.com/harsharajkumar-273/Vision-Drive-RL" target="_blank" rel="noreferrer" className="btn btn-secondary" style={{ textDecoration: 'none', display: 'inline-flex', fontSize: '0.8rem' }}>
                   View Source Code
                 </a>
               </div>
