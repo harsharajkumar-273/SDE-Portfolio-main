@@ -12,7 +12,7 @@ export default function Publications() {
       desc: 'Engineered a multi-model NLP pipeline utilizing Mistral 7B + LoRA to generate creative narrative summaries from dense academic research PDFs, yielding a 15% ROUGE/BLEU score improvement over baselines.',
     },
     {
-      title: 'Hybrid API Vulnerability Detection System',
+      title: 'Hybrid API Vulnerability Detection System using ML Classification',
       type: 'IEEE Published Paper',
       date: '2025',
       badge: 'IEEE Published',
