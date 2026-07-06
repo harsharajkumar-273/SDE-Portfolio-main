@@ -12,6 +12,9 @@ import NerveSegmentationSim from './components/NerveSegmentationSim';
 import Education from './components/Education';
 import Publications from './components/Publications';
 import NetflixRLSim from './components/NetflixRLSim';
+import LSMTreeSim from './components/LSMTreeSim';
+import MathMindSim from './components/MathMindSim';
+import PulseStreamSim from './components/PulseStreamSim';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('all');
@@ -37,6 +40,57 @@ export default function App() {
       categories: ['ai']
     },
     {
+      id: 'netflixrl',
+      title: 'Contextual Bandit Asynchronous Load Balancer',
+      label: 'Reinforcement Learning & Systems',
+      desc: 'An end-to-end prototype of an AI-driven load balancer designed to mitigate sudden thundering-herd traffic spikes (e.g. video streaming releases) by dynamically shifting routing weights using Linear Thompson Sampling (LinTS).',
+      bullets: [
+        'Formulated routing decisions as a Contextual Multi-Armed Bandit with a 6-dimensional context vector (load, latency, volatility).',
+        'Decoupled architecture: FastAPI data plane routing requests in under 0.1ms, plus an asynchronous background control plane worker updating Bayesian linear regression parameters every 150ms.',
+        'Integrated safety guardrails (Action Masking) setting a cluster node\'s routing weight to 0% if CPU load exceeds 85%.'
+      ],
+      tags: ['Thompson Sampling', 'FastAPI', 'RL Balancer'],
+      links: [
+        { label: 'Code', href: 'https://github.com/harsharajkumar-273/netflix-rl', primary: true }
+      ],
+      simulator: <NetflixRLSim />,
+      categories: ['ai', 'systems']
+    },
+    {
+      id: 'lsmtree',
+      title: 'LSM-Tree Key-Value Engine',
+      label: 'High-Performance Systems',
+      desc: 'An advanced implementation of a Log-Structured Merge-Tree key-value store in C++ featuring asynchronous zero-copy logging via Linux io_uring and vectorized cache-aligned Bloom filters.',
+      bullets: [
+        'Integrated Linux io_uring with O_DIRECT for non-blocking direct WAL logging, bypassing the kernel page cache.',
+        'Engineered concurrent lock-free SkipList MemTable backed by atomic CAS pointers and memory Arenas.',
+        'Implemented cache-aligned block Bloom filters restricting negative search latency overhead to 1 cache line miss.'
+      ],
+      tags: ['C++20', 'io_uring', 'Bloom Filters', 'Lock-Free SkipList'],
+      links: [
+        { label: 'Code', href: 'https://github.com/harsharajkumar-273/lsm_tree', primary: true }
+      ],
+      simulator: <LSMTreeSim />,
+      categories: ['systems']
+    },
+    {
+      id: 'mathmind',
+      title: 'MathMind Reasoning Pipeline',
+      label: 'Reasoning Models & Alignment',
+      desc: 'A modular, end-to-end training pipeline for reasoning models, covering data cleaning, supervised fine-tuning (SFT) with QLoRA, Process Reward Model (PRM) verifier training, and policy alignment using Group Relative Policy Optimization (GRPO).',
+      bullets: [
+        'Implemented Group Relative Policy Optimization (GRPO) to align model reasoning steps without a centralized value critic.',
+        'Trained a step-level verifier classifier (Process Reward Model) using Qwen2.5-Math-1.5B to score reasoning chains.',
+        'Built automation pipelines covering data ingestion, filtering, formatting, and validation logic.'
+      ],
+      tags: ['GRPO RL', 'PRM Verifier', 'QLoRA SFT', 'PyTorch'],
+      links: [
+        { label: 'Code', href: 'https://github.com/harsharajkumar-273/mathmind', primary: true }
+      ],
+      simulator: <MathMindSim />,
+      categories: ['ai']
+    },
+    {
       id: 'visiondrive',
       title: 'VisionDrive-RL Autonomous Control',
       label: 'Flagship AI Project',
@@ -54,23 +108,6 @@ export default function App() {
       categories: ['ai']
     },
     {
-      id: 'segmentation',
-      title: 'Ultrasound Nerve Segmenter',
-      label: 'Computer Vision & MedTech',
-      desc: 'A deep learning computer vision pipeline designed to segment the Brachial Plexus nerve bundle in ultrasound scans, built around a fully convolutional U-Net architecture.',
-      bullets: [
-        'Trained U-Net semantic segmenter on high-frequency clinical scan datasets.',
-        'Deployed an interactive web application loading weights from local H5 checkpoints.',
-        'Integrated dynamic overlay visualization of binarized confidence masks on raw neck scans.'
-      ],
-      tags: ['U-Net', 'Segmentation', 'Streamlit'],
-      links: [
-        { label: 'Code', href: 'https://github.com/harsharajkumar-273/Ultrasound-Nerve-Segmentation', primary: true }
-      ],
-      simulator: <NerveSegmentationSim />,
-      categories: ['ai']
-    },
-    {
       id: 'fernos',
       title: 'ARIA Disaster Pathfinder',
       label: 'Distributed Systems',
@@ -85,6 +122,23 @@ export default function App() {
         { label: 'Code', href: 'https://github.com/harsharajkumar-273/ARIA', primary: true }
       ],
       simulator: <FernOSSim />,
+      categories: ['systems']
+    },
+    {
+      id: 'pulsestream',
+      title: 'PulseStream Metrics Ingestion',
+      label: 'Distributed Systems',
+      desc: 'A horizontally scalable event-driven metrics ingestion pipeline built on Redpanda (Kafka), Redis idempotency edge locks, and PostgreSQL, benchmarked for high-concurrency IoT telemetry streams.',
+      bullets: [
+        'Decoupled ingestion gate returning HTTP 202 Accepted, routing streams using device ID partition keys.',
+        'Dual-layer idempotency: edge Redis lock-checks matching keys followed by PostgreSQL atomic upserts.',
+        'Containerized metrics collection scraping via Prometheus and visualizing loads on Grafana.'
+      ],
+      tags: ['TypeScript', 'Redpanda/Kafka', 'Redis Cache', 'Prometheus'],
+      links: [
+        { label: 'Code', href: 'https://github.com/harsharajkumar-273/PulseStream', primary: true }
+      ],
+      simulator: <PulseStreamSim />,
       categories: ['systems']
     },
     {
@@ -106,6 +160,23 @@ export default function App() {
       categories: ['ai', 'systems']
     },
     {
+      id: 'segmentation',
+      title: 'Ultrasound Nerve Segmenter',
+      label: 'Computer Vision & MedTech',
+      desc: 'A deep learning computer vision pipeline designed to segment the Brachial Plexus nerve bundle in ultrasound scans, built around a fully convolutional U-Net architecture.',
+      bullets: [
+        'Trained U-Net semantic segmenter on high-frequency clinical scan datasets.',
+        'Deployed an interactive web application loading weights from local H5 checkpoints.',
+        'Integrated dynamic overlay visualization of binarized confidence masks on raw neck scans.'
+      ],
+      tags: ['U-Net', 'Segmentation', 'Streamlit'],
+      links: [
+        { label: 'Code', href: 'https://github.com/harsharajkumar-273/Ultrasound-Nerve-Segmentation', primary: true }
+      ],
+      simulator: <NerveSegmentationSim />,
+      categories: ['ai']
+    },
+    {
       id: 'radar',
       title: 'Repost-Radar Telemetry Filter',
       label: 'High-Performance Systems',
@@ -121,23 +192,6 @@ export default function App() {
       ],
       simulator: <RadarSim />,
       categories: ['systems']
-    },
-    {
-      id: 'netflixrl',
-      title: 'Contextual Bandit Asynchronous Load Balancer',
-      label: 'Reinforcement Learning & Systems',
-      desc: 'An end-to-end prototype of an AI-driven load balancer designed to mitigate sudden thundering-herd traffic spikes (e.g. video streaming releases) by dynamically shifting routing weights using Linear Thompson Sampling (LinTS).',
-      bullets: [
-        'Formulated routing decisions as a Contextual Multi-Armed Bandit with a 6-dimensional context vector (load, latency, volatility).',
-        'Decoupled architecture: FastAPI data plane routing requests in under 0.1ms, plus an asynchronous background control plane worker updating Bayesian linear regression parameters every 150ms.',
-        'Integrated safety guardrails (Action Masking) setting a cluster node\'s routing weight to 0% if CPU load exceeds 85%.'
-      ],
-      tags: ['Thompson Sampling', 'FastAPI', 'RL Balancer'],
-      links: [
-        { label: 'Code', href: 'https://github.com/harsharajkumar-273/netflix-rl', primary: true }
-      ],
-      simulator: <NetflixRLSim />,
-      categories: ['ai', 'systems']
     }
   ];
 
@@ -217,7 +271,7 @@ export default function App() {
             })}
           </div>
 
-          {/* 2-Column Grid Layout (like the Vercel portfolio) */}
+          {/* 2-Column Grid Layout */}
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
