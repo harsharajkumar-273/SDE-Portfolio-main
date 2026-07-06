@@ -1,42 +1,57 @@
 import React from 'react';
-import { Terminal, Shield, Award, Cpu } from 'lucide-react';
 
 export default function Navbar() {
+  const linkStyle = {
+    color: 'var(--text-muted)',
+    textDecoration: 'none',
+    fontSize: '0.7rem',
+    fontWeight: 500,
+    fontFamily: 'var(--font-mono)',
+    textTransform: 'uppercase',
+    letterSpacing: '0.08em',
+    transition: 'color 0.2s'
+  };
+
+  const handleMouseEnter = (e) => {
+    e.target.style.color = '#fff';
+  };
+
+  const handleMouseLeave = (e) => {
+    e.target.style.color = 'var(--text-muted)';
+  };
+
   return (
     <nav style={{
       position: 'sticky',
       top: 0,
       width: '100%',
       zIndex: 100,
-      background: 'rgba(7, 8, 11, 0.75)',
-      backdropFilter: 'blur(16px)',
+      background: 'rgba(5, 5, 8, 0.75)',
+      backdropFilter: 'blur(20px)',
       borderBottom: '1px solid var(--border)',
-      padding: '1rem 2rem',
+      padding: '1.25rem 2rem',
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
     }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-        <Cpu size={24} style={{ color: 'var(--secondary)' }} />
-        <span style={{
-          fontFamily: 'var(--font-space)',
-          fontWeight: 700,
-          fontSize: '1.2rem',
-          letterSpacing: '1px',
-          textTransform: 'uppercase',
-          background: 'linear-gradient(to right, #ffffff, var(--text-muted))',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent'
-        }}>
-          Harsha Raj Kumar
-        </span>
-      </div>
+      <a href="#about" style={{
+        fontFamily: 'var(--font-space)',
+        fontWeight: 800,
+        fontSize: '1.1rem',
+        color: 'white',
+        letterSpacing: '-.03em',
+        textDecoration: 'none',
+      }}>
+        H<span style={{ color: 'var(--primary)' }}>.</span>RK
+      </a>
       
-      <div style={{ display: 'flex', gap: '1.5rem' }}>
-        <a href="#about" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '0.9rem', fontWeight: 600, transition: 'color 0.2s' }} onMouseEnter={(e) => e.target.style.color = '#fff'} onMouseLeave={(e) => e.target.style.color = 'var(--text-muted)'}>About</a>
-        <a href="#experience" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '0.9rem', fontWeight: 600, transition: 'color 0.2s' }} onMouseEnter={(e) => e.target.style.color = '#fff'} onMouseLeave={(e) => e.target.style.color = 'var(--text-muted)'}>Experience</a>
-        <a href="#projects" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '0.9rem', fontWeight: 600, transition: 'color 0.2s' }} onMouseEnter={(e) => e.target.style.color = '#fff'} onMouseLeave={(e) => e.target.style.color = 'var(--text-muted)'}>Simulations</a>
-        <a href="#skills" style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '0.9rem', fontWeight: 600, transition: 'color 0.2s' }} onMouseEnter={(e) => e.target.style.color = '#fff'} onMouseLeave={(e) => e.target.style.color = 'var(--text-muted)'}>Skills</a>
+      <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
+        <a href="#about" style={linkStyle} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>About</a>
+        <a href="#experience" style={linkStyle} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>Experience</a>
+        <a href="#education" style={linkStyle} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>Education</a>
+        <a href="#projects" style={linkStyle} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>Projects</a>
+        <a href="#publications" style={linkStyle} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>Publications</a>
+        <a href="#skills" style={linkStyle} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>Skills</a>
       </div>
     </nav>
   );

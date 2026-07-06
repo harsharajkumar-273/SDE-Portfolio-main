@@ -1,10 +1,10 @@
 import React from 'react';
-import { Mail, FileText, ChevronDown } from 'lucide-react';
+import { Mail, ChevronDown } from 'lucide-react';
 
 export default function Hero() {
   return (
     <section id="about" style={{
-      padding: '4rem 1.5rem 3rem 1.5rem',
+      padding: '5rem 1.5rem 2rem 1.5rem',
       maxWidth: '850px',
       margin: '0 auto',
       textAlign: 'center',
@@ -13,27 +13,27 @@ export default function Hero() {
       alignItems: 'center',
       gap: '1.5rem'
     }}>
-      <div style={{
-        background: 'linear-gradient(135deg, var(--primary-glow), var(--secondary-glow))',
+      <div className="font-mono" style={{
+        background: 'rgba(99, 179, 237, 0.06)',
         padding: '0.4rem 1rem',
         borderRadius: '20px',
-        border: '1px solid rgba(255,255,255,0.08)',
-        fontSize: '0.85rem',
+        border: '1px solid rgba(99, 179, 237, 0.25)',
+        fontSize: '0.65rem',
         fontWeight: 600,
-        color: 'var(--secondary)',
-        fontFamily: 'var(--font-space)',
+        color: 'var(--primary)',
         textTransform: 'uppercase',
         letterSpacing: '1px'
       }}>
-        Robotics & AI Systems Engineer
+        AI Researcher & Systems Engineer
       </div>
       
       <h1 style={{
         fontFamily: 'var(--font-space)',
-        fontSize: '3.5rem',
+        fontSize: '3.8rem',
         fontWeight: 800,
         lineHeight: 1.1,
-        background: 'linear-gradient(to bottom, #ffffff, #9ca3af)',
+        letterSpacing: '-.04em',
+        background: 'linear-gradient(135deg, #ffffff 0%, var(--text-muted) 100%)',
         WebkitBackgroundClip: 'text',
         WebkitTextFillColor: 'transparent',
         margin: '0.5rem 0'
@@ -42,15 +42,15 @@ export default function Hero() {
       </h1>
       
       <p style={{
-        fontSize: '1.2rem',
+        fontSize: '1.1rem',
         color: 'var(--text-muted)',
-        maxWidth: '640px',
-        lineHeight: 1.6,
+        maxWidth: '620px',
+        lineHeight: 1.7,
         margin: '0 auto'
       }}>
-        MS Computer Science Candidate at <strong>Vanderbilt University</strong>. 
-        Specializing in building high-throughput sensor pipelines, closed-loop control systems, 
-        and reinforcement learning models for autonomous physical systems.
+        MS Computer Science at <strong>Vanderbilt University</strong>. 
+        Research Assistant at VU-BEAM Lab specializing in self-supervised 
+        medical imaging and high-performance data engineering pipelines.
       </p>
       
       <div style={{
@@ -61,7 +61,7 @@ export default function Hero() {
         flexWrap: 'wrap'
       }}>
         <a href="mailto:harsharajkumar273@gmail.com" className="btn btn-primary" style={{ textDecoration: 'none' }}>
-          <Mail size={16} /> Email Me
+          <Mail size={16} /> Get in Touch
         </a>
         <a href="https://github.com/harsharajkumar-273" target="_blank" rel="noreferrer" className="btn" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-github">
@@ -76,13 +76,26 @@ export default function Hero() {
             <circle cx="4" cy="4" r="2" />
           </svg> LinkedIn
         </a>
-        <a href="file:///Users/harsharajkumar/Downloads/projects/resume.tex" className="btn" style={{ textDecoration: 'none' }}>
-          <FileText size={16} /> LaTeX Resume
-        </a>
+      </div>
+
+      {/* Dynamic Stats Row */}
+      <div className="stats-row" style={{ width: '100%' }}>
+        <div className="stat">
+          <div><span className="stat-num">85</span><span className="stat-suf">%</span></div>
+          <span className="stat-label">CNR Image Contrast</span>
+        </div>
+        <div className="stat">
+          <div><span className="stat-num">60</span><span className="stat-suf" style={{ color: 'var(--accent-purple)' }}>%</span></div>
+          <span className="stat-label">Build Failures Reduced</span>
+        </div>
+        <div className="stat">
+          <div><span className="stat-num">37</span><span className="stat-suf" style={{ color: 'var(--secondary)' }}>+</span></div>
+          <span className="stat-label">GitHub Repositories</span>
+        </div>
       </div>
       
-      <div style={{ marginTop: '3rem', color: 'var(--text-muted)', animation: 'bounce 2s infinite' }}>
-        <ChevronDown size={28} />
+      <div style={{ marginTop: '1rem', color: 'var(--text-muted)', animation: 'bounce 2s infinite' }}>
+        <ChevronDown size={28} style={{ color: 'var(--text-muted)' }} />
       </div>
     </section>
   );
