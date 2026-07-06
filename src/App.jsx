@@ -7,6 +7,8 @@ import FernOSSim from './components/FernOSSim';
 import CleanOpsSim from './components/CleanOpsSim';
 import VisionDriveSim from './components/VisionDriveSim';
 import RadarSim from './components/RadarSim';
+import ReCLMetrics from './components/ReCLMetrics';
+import NerveSegmentationSim from './components/NerveSegmentationSim';
 
 export default function App() {
   return (
@@ -48,6 +50,40 @@ export default function App() {
             gap: '2.5rem'
           }}>
             
+            {/* ReCL / DAC-Learn Row */}
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+              gap: '2rem',
+              alignItems: 'center'
+            }}>
+              <ReCLMetrics />
+              <div>
+                <div style={{ color: 'var(--secondary)', fontSize: '0.8rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '0.5rem' }}>Flagship Research Publication</div>
+                <h3 className="font-space" style={{ fontSize: '1.6rem', fontWeight: 700, marginBottom: '1rem', color: '#fff' }}>
+                  ReCL: Reconstructive Contrastive Learning
+                </h3>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 1.6, marginBottom: '1.2rem' }}>
+                  A physics-informed self-supervised representation learning framework submitted to <strong>NeurIPS 2026</strong>. It resolves the invariance-reconstruction mismatch by enforcing phase-sensitive Normalized Cross-Correlation (NCC) reconstruction directly inside the InfoNCE contrastive bottleneck.
+                </p>
+                <ul style={{ color: 'var(--text-muted)', fontSize: '0.9rem', paddingLeft: '1.2rem', display: 'flex', flexDirection: 'column', gap: '0.4rem', marginBottom: '1.2rem' }}>
+                  <li>Formulated <strong>N-way Depth-Aware InfoNCE</strong> to suppress depth-attenuation shortcuts.</li>
+                  <li>Outperformed supervised training from scratch by <strong>0.17 NCC</strong> at a highly constrained 10% labels budget on the PICMUS in-vivo benchmark.</li>
+                  <li>Published open-source pre-trained model weights and HDF5 dataset archives directly to Hugging Face.</li>
+                </ul>
+                <div style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap' }}>
+                  <a href="https://huggingface.co/harsharajkumar273/ReCL-Ultrasound-Checkpoints" target="_blank" rel="noreferrer" className="btn btn-secondary" style={{ textDecoration: 'none', display: 'inline-flex', fontSize: '0.8rem' }}>
+                    HF Models
+                  </a>
+                  <a href="https://github.com/harsharajkumar-273/ReCL" target="_blank" rel="noreferrer" className="btn" style={{ textDecoration: 'none', display: 'inline-flex', fontSize: '0.8rem' }}>
+                    View Codebase
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <hr style={{ border: 'none', borderTop: '1px solid var(--border)', margin: '1rem 0' }} />
+
             {/* VisionDrive-RL Row */}
             <div style={{
               display: 'grid',
@@ -73,6 +109,35 @@ export default function App() {
                 </a>
               </div>
               <VisionDriveSim />
+            </div>
+
+            <hr style={{ border: 'none', borderTop: '1px solid var(--border)', margin: '1rem 0' }} />
+
+            {/* Ultrasound Nerve Segmentation Row */}
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+              gap: '2rem',
+              alignItems: 'center'
+            }}>
+              <NerveSegmentationSim />
+              <div>
+                <div style={{ color: 'var(--secondary)', fontSize: '0.8rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '0.5rem' }}>Computer Vision & MedTech</div>
+                <h3 className="font-space" style={{ fontSize: '1.6rem', fontWeight: 700, marginBottom: '1rem', color: '#fff' }}>
+                  Ultrasound Nerve Segmenter
+                </h3>
+                <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', lineHeight: 1.6, marginBottom: '1.2rem' }}>
+                  A deep learning computer vision pipeline designed to segment the Brachial Plexus nerve bundle in ultrasound scans. Built around a U-Net architecture and equipped with a live interactive web application.
+                </p>
+                <ul style={{ color: 'var(--text-muted)', fontSize: '0.9rem', paddingLeft: '1.2rem', display: 'flex', flexDirection: 'column', gap: '0.4rem', marginBottom: '1.2rem' }}>
+                  <li>Trained fully convolutional <strong>U-Net</strong> semantic segmenter on medical scan datasets.</li>
+                  <li>Deployed an interactive <strong>Streamlit web application</strong> loading weights from local H5 checkpoints.</li>
+                  <li>Integrated side-by-side visualization overlays of binarized confidence masks on raw scans.</li>
+                </ul>
+                <a href="https://github.com/harsharajkumar-273/Ultrasound-Nerve-Segmentation" target="_blank" rel="noreferrer" className="btn btn-secondary" style={{ textDecoration: 'none', display: 'inline-flex', fontSize: '0.8rem' }}>
+                  View Source Code
+                </a>
+              </div>
             </div>
 
             <hr style={{ border: 'none', borderTop: '1px solid var(--border)', margin: '1rem 0' }} />

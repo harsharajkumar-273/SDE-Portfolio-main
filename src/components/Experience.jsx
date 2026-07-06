@@ -53,7 +53,7 @@ export default function Experience() {
             gap: '0.8rem'
           }}>
             <li>
-              Designed and evaluated <strong style={{ color: '#fff' }}>DAC-Learn</strong>, a novel self-supervised ultrasound representation learning model for processing high-frequency medical sensor streams, evaluated against 4 baselines on the PICMUS benchmark.
+              Designed and evaluated <strong style={{ color: '#fff' }}>ReCL / DAC-Learn</strong>, a novel self-supervised ultrasound representation learning model for processing high-frequency medical sensor streams, evaluated against 4 baselines on the PICMUS benchmark.
             </li>
             <li>
               Achieved <strong style={{ color: '#fff' }}>85% improvement</strong> in image contrast (CNR: 3.5+ dB) and outperformed CycleGAN by <strong style={{ color: '#fff' }}>20%</strong> on clinical cardiac datasets with zero paired training samples.
