@@ -27,11 +27,11 @@ jobs:
       - name: Build Project
         run: npm run build
         env:
-          VITE_BASE_PATH: '/SDE-Portfolio-main/'
+          VITE_BASE_PATH: '/'
 
       - name: Deploy to GH Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
-          # cname: harsha.dev # Uncomment and replace with your custom domain when ready
+          cname: harsha.dev
