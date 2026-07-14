@@ -9,6 +9,7 @@ import LSMTreeSim from './components/LSMTreeSim';
 import PulseStreamSim from './components/PulseStreamSim';
 import GatewaySim from './components/GatewaySim';
 import Education from './components/Education';
+import Certifications from './components/Certifications';
 import Publications from './components/Publications';
 import TerminalDrawer from './components/TerminalDrawer';
 
@@ -16,6 +17,19 @@ export default function App() {
   const [activeTab, setActiveTab] = useState('all');
   const [activeModalProject, setActiveModalProject] = useState(null);
   const [modalTab, setModalTab] = useState('sandbox');
+
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('theme') || 'light';
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prev => prev === 'light' ? 'dark' : 'light');
+  };
 
   // Reset tab to sandbox when switching projects
   useEffect(() => {
@@ -188,7 +202,7 @@ export default function App() {
 
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-      <Navbar />
+      <Navbar theme={theme} toggleTheme={toggleTheme} />
       
       <main style={{ flexGrow: 1, paddingBottom: '6rem' }}>
         <Hero />
@@ -375,6 +389,8 @@ export default function App() {
           </div>
         </section>
         
+        <Certifications />
+        
         <Publications />
         
         <Skills />
@@ -431,7 +447,7 @@ export default function App() {
                 gap: '0.4rem'
               }}
             >
-              Close <span className="keycap" style={{ background: '#09090b', borderColor: 'rgba(255,255,255,0.15)', color: '#a1a1aa', padding: '0.1rem 0.25rem', fontSize: '0.55rem', borderBottomWidth: '1px' }}>Esc</span>
+              Close <span className="keycap" style={{ padding: '0.1rem 0.25rem', fontSize: '0.55rem', borderBottomWidth: '1px' }}>Esc</span>
             </button>
             
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '1.5rem', borderBottom: '1px solid var(--border)', paddingBottom: '1rem' }}>

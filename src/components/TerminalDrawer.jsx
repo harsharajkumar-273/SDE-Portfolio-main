@@ -124,7 +124,7 @@ export default function TerminalDrawer() {
       left: 0,
       right: 0,
       zIndex: 900,
-      background: '#09090b',
+      background: 'var(--terminal-bg)',
       borderTop: '1px solid var(--border)',
       transition: 'height 0.25s ease-in-out',
       height: isOpen ? '280px' : '38px',
@@ -139,7 +139,7 @@ export default function TerminalDrawer() {
         onClick={() => setIsOpen(!isOpen)}
         style={{
           height: '37px',
-          background: '#121214',
+          background: 'var(--terminal-hdr)',
           borderBottom: isOpen ? '1px solid var(--border)' : 'none',
           padding: '0 1rem',
           display: 'flex',
@@ -199,7 +199,7 @@ export default function TerminalDrawer() {
               key={idx} 
               style={{ 
                 fontSize: '0.72rem', 
-                color: item.type === 'input' ? 'var(--text-main)' : '#94a3b8',
+                color: item.type === 'input' ? 'var(--text-main)' : 'var(--text-muted)',
                 whiteSpace: 'pre-wrap',
                 lineHeight: 1.5
               }}

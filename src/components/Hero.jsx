@@ -56,7 +56,7 @@ export default function Hero() {
           display: 'flex',
           alignItems: 'center',
           gap: '0.5rem',
-          background: 'rgba(255, 255, 255, 0.02)',
+          background: 'var(--primary-glow)',
           border: '1px solid var(--border)',
           padding: '0.45rem 1rem',
           borderRadius: '8px',
@@ -111,7 +111,7 @@ export default function Hero() {
         flexWrap: 'wrap'
       }}>
         <a href="mailto:harsharajkumar273@gmail.com" className="btn btn-primary" style={{ textDecoration: 'none' }}>
-          <Mail size={14} /> Get in Touch <span className="keycap" style={{ background: '#09090b', borderColor: 'rgba(255,255,255,0.15)', color: '#a1a1aa', padding: '0.1rem 0.25rem', fontSize: '0.55rem', marginLeft: '4px' }}>⌘K</span>
+          <Mail size={14} /> Get in Touch <span className="keycap" style={{ padding: '0.1rem 0.25rem', fontSize: '0.55rem', marginLeft: '4px' }}>⌘K</span>
         </a>
         <a href="https://github.com/harsharajkumar-273" target="_blank" rel="noreferrer" className="btn" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -129,12 +129,24 @@ export default function Hero() {
       </div>
 
       {/* Dynamic Stats Row - Interactive click-to-expand details */}
-      <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+      <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '0.75rem', marginTop: '2.5rem' }}>
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '0.4rem',
+          fontSize: '0.75rem',
+          fontFamily: 'var(--font-mono)',
+          color: 'var(--text-muted)'
+        }}>
+          <Info size={12} style={{ color: 'var(--primary)' }} />
+          <span>Click any metric below to see how it was achieved</span>
+        </div>
         <div 
           className="stats-row" 
           style={{ 
             width: '100%', 
-            margin: '3rem auto 0 auto',
+            margin: '0.5rem auto 0 auto',
             gridTemplateColumns: 'repeat(3, 1fr)'
           }}
         >
@@ -151,7 +163,7 @@ export default function Hero() {
                 className="stat" 
                 style={{ 
                   cursor: 'pointer',
-                  background: isSelected ? 'rgba(255, 255, 255, 0.02)' : 'transparent',
+                  background: isSelected ? 'var(--primary-glow)' : 'transparent',
                   borderBottom: isSelected ? `2px solid ${stat.color}` : '1px solid transparent',
                   transition: 'all 0.2s ease',
                   padding: '1.5rem'
@@ -173,7 +185,7 @@ export default function Hero() {
         {/* Expandable Verification Console */}
         {activeStat !== null && (
           <div style={{
-            background: '#09090b',
+            background: 'var(--terminal-bg)',
             border: '1px solid var(--border)',
             borderRadius: '8px',
             padding: '1.25rem',

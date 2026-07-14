@@ -1,13 +1,14 @@
 import React from 'react';
+import { Sun, Moon } from 'lucide-react';
 
-export default function Navbar() {
+export default function Navbar({ theme, toggleTheme }) {
   return (
     <nav style={{
       position: 'sticky',
       top: 0,
       width: '100%',
       zIndex: 100,
-      background: 'rgba(9, 9, 11, 0.8)',
+      background: 'var(--nav-bg)',
       backdropFilter: 'blur(20px)',
       borderBottom: '1px solid var(--border)',
       padding: '1.1rem 2rem',
@@ -38,8 +39,19 @@ export default function Navbar() {
         <a href="#experience" className="nav-link">Experience</a>
         <a href="#education" className="nav-link">Education</a>
         <a href="#projects" className="nav-link">Projects</a>
+        <a href="#certifications" className="nav-link">Certifications</a>
         <a href="#publications" className="nav-link">Publications</a>
         <a href="#skills" className="nav-link">Skills</a>
+        
+        {/* Modern Light/Dark Toggle Button */}
+        <button 
+          onClick={toggleTheme}
+          className="theme-toggle-btn"
+          title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+          aria-label={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+        >
+          {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
+        </button>
       </div>
     </nav>
   );
