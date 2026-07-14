@@ -27,7 +27,7 @@ jobs:
       - name: Build Project
         run: npm run build
         env:
-          VITE_BASE_PATH: '/SDE-Portfolio/'
+          VITE_BASE_PATH: '/SDE-Portfolio-main/'
 
       - name: Deploy to GH Pages
         uses: peaceiris/actions-gh-pages@v4
