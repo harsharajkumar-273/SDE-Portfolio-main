@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, ChevronDown, Info } from 'lucide-react';
+import { Mail, ChevronDown, Info, FileText } from 'lucide-react';
 
 export default function Hero() {
   const [activeStat, setActiveStat] = useState(null);
@@ -125,6 +125,9 @@ export default function Hero() {
             <rect width="4" height="12" x="2" y="9" rx="1" />
             <circle cx="4" cy="4" r="2" />
           </svg> LinkedIn
+        </a>
+        <a href="/Harsha%20Raj%20Kumar%20CV.pdf" target="_blank" rel="noreferrer" className="btn" style={{ textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
+          <FileText size={14} /> Resume
         </a>
       </div>
 
