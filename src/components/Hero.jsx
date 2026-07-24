@@ -24,7 +24,7 @@ export default function Hero() {
         textTransform: 'uppercase',
         letterSpacing: '1px'
       }}>
-        AI Researcher & Systems Engineer
+        Software & Systems Engineer
       </div>
       
       <h1 style={{
@@ -44,13 +44,12 @@ export default function Hero() {
       <p style={{
         fontSize: '1.1rem',
         color: 'var(--text-muted)',
-        maxWidth: '620px',
+        maxWidth: '640px',
         lineHeight: 1.7,
         margin: '0 auto'
       }}>
-        MS Computer Science at <strong>Vanderbilt University</strong>. 
-        Research Assistant at VU-BEAM Lab specializing in self-supervised 
-        medical imaging and high-performance data engineering pipelines.
+        MS Computer Science student at <strong>Vanderbilt University</strong>. 
+        Engineered low-level C++20 storage engines (`io_uring`), high-throughput event streaming pipelines, SRE rate-limiting gateways, and WebAssembly-powered browser IDE sandboxes.
       </p>
       
       <div style={{
@@ -78,24 +77,24 @@ export default function Hero() {
         </a>
       </div>
 
-      {/* Dynamic Stats Row */}
+      {/* Dynamic Systems Stats Row */}
       <div className="stats-row" style={{ width: '100%' }}>
         <div className="stat">
-          <div><span className="stat-num">85</span><span className="stat-suf">%</span></div>
-          <span className="stat-label">CNR Image Contrast</span>
+          <div><span className="stat-num">25</span><span className="stat-suf">k+</span></div>
+          <span className="stat-label">req/sec P99 &lt; 15ms</span>
         </div>
         <div className="stat">
-          <div><span className="stat-num">60</span><span className="stat-suf" style={{ color: 'var(--accent-purple)' }}>%</span></div>
-          <span className="stat-label">Build Failures Reduced</span>
+          <div><span className="stat-num">72</span><span className="stat-suf" style={{ color: 'var(--accent-purple)' }}>%</span></div>
+          <span className="stat-label">WASM Build Latency Cut</span>
         </div>
         <div className="stat">
-          <div><span className="stat-num">37</span><span className="stat-suf" style={{ color: 'var(--secondary)' }}>+</span></div>
-          <span className="stat-label">GitHub Repositories</span>
+          <div><span className="stat-num">4.2</span><span className="stat-suf" style={{ color: 'var(--secondary)' }}>x</span></div>
+          <span className="stat-label">AVX2 SIMD Speedup</span>
         </div>
       </div>
       
       <a 
-        href="#experience"
+        href="#projects"
         style={{ 
           background: 'transparent',
           border: 'none',

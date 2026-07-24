@@ -3,18 +3,15 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Experience from './components/Experience';
 import Skills from './components/Skills';
-import FernOSSim from './components/FernOSSim';
-import CleanOpsSim from './components/CleanOpsSim';
-import VisionDriveSim from './components/VisionDriveSim';
-import RadarSim from './components/RadarSim';
-import ReCLMetrics from './components/ReCLMetrics';
-import NerveSegmentationSim from './components/NerveSegmentationSim';
 import Education from './components/Education';
 import Publications from './components/Publications';
-import NetflixRLSim from './components/NetflixRLSim';
 import LSMTreeSim from './components/LSMTreeSim';
-import MathMindSim from './components/MathMindSim';
+import ProofdeskSim from './components/ProofdeskSim';
+import GatewaySim from './components/GatewaySim';
+import RadarSim from './components/RadarSim';
 import PulseStreamSim from './components/PulseStreamSim';
+import FernOSSim from './components/FernOSSim';
+import NetflixRLSim from './components/NetflixRLSim';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('all');
@@ -22,176 +19,123 @@ export default function App() {
 
   const projects = [
     {
-      id: 'recl',
-      title: 'ReCL: Reconstructive Contrastive Learning',
-      label: 'Flagship Research',
-      desc: 'A physics-informed self-supervised representation learning framework submitted to NeurIPS 2026. Enforces phase-sensitive Normalized Cross-Correlation (NCC) reconstruction directly inside the InfoNCE contrastive bottleneck.',
+      id: 'lsmtree',
+      title: 'LSM-Tree Key-Value Engine',
+      label: 'High-Performance C++20 Systems',
+      desc: 'An advanced C++20 storage engine implementing a Log-Structured Merge-Tree featuring zero-copy direct I/O logging via Linux io_uring and CPU cache-aligned vectorized Block Bloom filters.',
       bullets: [
-        'Formulated N-way Depth-Aware InfoNCE to suppress depth-attenuation shortcuts.',
-        'Outperformed supervised training from scratch by 0.17 NCC at a highly constrained 10% labels budget.',
-        'Published open-source pre-trained model weights and HDF5 dataset archives to Hugging Face.'
+        'Integrated Linux io_uring with O_DIRECT for non-blocking direct WAL logging, completely bypassing kernel page cache.',
+        'Engineered concurrent lock-free SkipList MemTable backed by atomic CAS pointers and thread-safe memory Arenas.',
+        'Implemented 64-byte cache-aligned block Bloom filters restricting negative search latency to at most 1 CPU cache line miss.'
       ],
-      tags: ['PyTorch', 'Contrastive', 'Medical AI'],
+      tags: ['C++20', 'io_uring', 'O_DIRECT', 'Bloom Filters', 'Lock-Free SkipList'],
       links: [
-        { label: 'HF Models', href: 'https://huggingface.co/harsharajkumar273/ReCL-Ultrasound-Checkpoints', primary: true },
-        { label: 'Code', href: 'https://github.com/harsharajkumar-273/ReCL', primary: false }
+        { label: 'Source Code', href: 'https://github.com/harsharajkumar-273/lsm_tree', primary: true }
       ],
-      simulator: <ReCLMetrics />,
-      categories: ['ai']
+      simulator: <LSMTreeSim />,
+      categories: ['systems', 'storage']
+    },
+    {
+      id: 'proofdesk',
+      title: 'Proofdesk Collaborative Web IDE',
+      label: 'Full-Stack SDE & WASM Compiler',
+      desc: 'A collaborative browser-based LaTeX/XML Web IDE and build sandbox for authoring, reviewing, and rendering interactive mathematical textbooks.',
+      bullets: [
+        'Ported PreTeXt/XML rendering to WebAssembly (Pyodide), reducing compilation feedback latency by 72% (from 1.1s down to 300ms).',
+        'Deployed isolated terminal runtimes (node-pty) inside Docker containers with strict safety allocations (512MB RAM, 64 PIDs).',
+        'Architected a distributed BullMQ/Redis worker task queue with in-memory fallback to guarantee 100% compiler availability.'
+      ],
+      tags: ['React', 'TypeScript', 'WebAssembly', 'Docker', 'Redis/BullMQ', 'WebSockets'],
+      links: [
+        { label: 'Source Code', href: 'https://github.com/harsharajkumar-273/proofdesk', primary: true }
+      ],
+      simulator: <ProofdeskSim />,
+      categories: ['distributed', 'systems']
+    },
+    {
+      id: 'apigateway',
+      title: 'Production API Gateway & Circuit Breaker',
+      label: 'SRE & Distributed Systems',
+      desc: 'A robust Node.js edge proxy managing downstream microservices with distributed token-bucket rate limiting via Redis Sorted Sets and custom SRE Circuit Breakers.',
+      bullets: [
+        'Sustains over 25,000 requests/sec at P99 latency < 15ms with atomic sliding-window rate limiting in Redis zsets (< 1.5ms checks).',
+        'Custom SRE Circuit Breaker state machine (CLOSED, OPEN, HALF-OPEN) preventing cascading microservice failures.',
+        'Adaptive EWMA PID controller throttling auto-recovering throughput during thundering-herd traffic spikes.'
+      ],
+      tags: ['Node.js', 'Redis zsets', 'SRE Circuit Breaker', 'Docker', 'AWS ECS'],
+      links: [
+        { label: 'Source Code', href: 'https://github.com/harsharajkumar-273/API-gateway', primary: true }
+      ],
+      simulator: <GatewaySim />,
+      categories: ['distributed', 'systems']
+    },
+    {
+      id: 'radar',
+      title: 'Repost-Radar Stream Deduplicator',
+      label: 'C++20 & AVX2 SIMD Systems',
+      desc: 'A hyper-optimized text deduplication engine in C++20 utilizing AVX2 SIMD vectorization primitives and zero-copy string shingling, productized as a Reddit Devvit moderation app.',
+      bullets: [
+        'Parallelized 128 universal hash variants across CPU registers using AVX2 SIMD intrinsics (4.2x speedup in MinHash generation).',
+        'Zero-copy token shingling using std::string_view, reducing memory allocation footprints by 65%.',
+        'Built a concurrent slab-allocated LSH hash index with reader-writer locks (std::shared_mutex) for high concurrency.'
+      ],
+      tags: ['C++20', 'AVX2 SIMD', 'MinHash / LSH', 'Devvit App'],
+      links: [
+        { label: 'Source Code', href: 'https://github.com/harsharajkumar-273/Repost-Radar', primary: true }
+      ],
+      simulator: <RadarSim />,
+      categories: ['systems', 'storage']
+    },
+    {
+      id: 'pulsestream',
+      title: 'PulseStream Telemetry Ingestion',
+      label: 'Distributed Data Systems',
+      desc: 'A containerized event-driven metrics ingestion pipeline built on Node.js/TypeScript, Redpanda (Kafka), Redis, and PostgreSQL, benchmarked for high-concurrency streams.',
+      bullets: [
+        'Decoupled ingestion gate returning HTTP 202 Accepted in < 8ms, routing events via device ID partition keys.',
+        'Dual-layer idempotency: atomic edge Redis SETNX locks combined with PostgreSQL ON CONFLICT constraints.',
+        'High-performance batch database consumer executing chunked transactions for 1,000+ metrics per batch.'
+      ],
+      tags: ['TypeScript', 'Redpanda/Kafka', 'Redis Cache', 'PostgreSQL', 'Prometheus'],
+      links: [
+        { label: 'Source Code', href: 'https://github.com/harsharajkumar-273/PulseStream', primary: true }
+      ],
+      simulator: <PulseStreamSim />,
+      categories: ['distributed']
+    },
+    {
+      id: 'fernos',
+      title: 'ARIA Distributed Crisis Pathfinder',
+      label: 'Spatial Systems & Routing',
+      desc: 'A disaster response platform modeling urban infrastructure as a spatial PostGIS graph, computing safe evacuation paths via dynamic Dijkstra pathfinding with hazard time-decay.',
+      bullets: [
+        'Integrated custom Dijkstra pathfinder penalizing roads based on active hazard decay rates exp(-1.5t).',
+        'Processed real-time responder updates via Socket.io streams and two-way Twilio SMS state machines.',
+        'Deployed containerized services on AWS ECS with Prometheus and Grafana telemetry monitors.'
+      ],
+      tags: ['TypeScript', 'Node.js', 'PostGIS', 'Socket.io', 'FastAPI'],
+      links: [
+        { label: 'Source Code', href: 'https://github.com/harsharajkumar-273/ARIA', primary: true }
+      ],
+      simulator: <FernOSSim />,
+      categories: ['distributed', 'systems']
     },
     {
       id: 'netflixrl',
       title: 'Contextual Bandit Asynchronous Load Balancer',
-      label: 'Reinforcement Learning & Systems',
-      desc: 'An end-to-end prototype of an AI-driven load balancer designed to mitigate sudden thundering-herd traffic spikes (e.g. video streaming releases) by dynamically shifting routing weights using Linear Thompson Sampling (LinTS).',
+      label: 'Systems & Load Balancing',
+      desc: 'An AI-driven load balancer designed to mitigate thundering-herd traffic spikes by dynamically shifting node routing weights using Linear Thompson Sampling (LinTS).',
       bullets: [
-        'Formulated routing decisions as a Contextual Multi-Armed Bandit with a 6-dimensional context vector (load, latency, volatility).',
-        'Decoupled architecture: FastAPI data plane routing requests in under 0.1ms, plus an asynchronous background control plane worker updating Bayesian linear regression parameters every 150ms.',
-        'Integrated safety guardrails (Action Masking) setting a cluster node\'s routing weight to 0% if CPU load exceeds 85%.'
+        'Decoupled architecture: FastAPI data plane routing requests in < 0.1ms plus an asynchronous background control plane worker.',
+        'Integrated safety guardrails setting a cluster node\'s routing weight to 0% if CPU load exceeds 85%.',
+        'Evaluated latency and throughput recovery under simulated traffic bursts.'
       ],
-      tags: ['Thompson Sampling', 'FastAPI', 'RL Balancer'],
+      tags: ['FastAPI', 'Load Balancing', 'Linear Thompson Sampling', 'Python'],
       links: [
-        { label: 'Code', href: 'https://github.com/harsharajkumar-273/netflix-rl', primary: true }
+        { label: 'Source Code', href: 'https://github.com/harsharajkumar-273/netflix-rl', primary: true }
       ],
       simulator: <NetflixRLSim />,
-      categories: ['ai', 'systems']
-    },
-    {
-      id: 'lsmtree',
-      title: 'LSM-Tree Key-Value Engine',
-      label: 'High-Performance Systems',
-      desc: 'An advanced implementation of a Log-Structured Merge-Tree key-value store in C++ featuring asynchronous zero-copy logging via Linux io_uring and vectorized cache-aligned Bloom filters.',
-      bullets: [
-        'Integrated Linux io_uring with O_DIRECT for non-blocking direct WAL logging, bypassing the kernel page cache.',
-        'Engineered concurrent lock-free SkipList MemTable backed by atomic CAS pointers and memory Arenas.',
-        'Implemented cache-aligned block Bloom filters restricting negative search latency overhead to 1 cache line miss.'
-      ],
-      tags: ['C++20', 'io_uring', 'Bloom Filters', 'Lock-Free SkipList'],
-      links: [
-        { label: 'Code', href: 'https://github.com/harsharajkumar-273/lsm_tree', primary: true }
-      ],
-      simulator: <LSMTreeSim />,
-      categories: ['systems']
-    },
-    {
-      id: 'mathmind',
-      title: 'MathMind Reasoning Pipeline',
-      label: 'Reasoning Models & Alignment',
-      desc: 'A modular, end-to-end training pipeline for reasoning models, covering data cleaning, supervised fine-tuning (SFT) with QLoRA, Process Reward Model (PRM) verifier training, and policy alignment using Group Relative Policy Optimization (GRPO).',
-      bullets: [
-        'Implemented Group Relative Policy Optimization (GRPO) to align model reasoning steps without a centralized value critic.',
-        'Trained a step-level verifier classifier (Process Reward Model) using Qwen2.5-Math-1.5B to score reasoning chains.',
-        'Built automation pipelines covering data ingestion, filtering, formatting, and validation logic.'
-      ],
-      tags: ['GRPO RL', 'PRM Verifier', 'QLoRA SFT', 'PyTorch'],
-      links: [
-        { label: 'Code', href: 'https://github.com/harsharajkumar-273/mathmind', primary: true }
-      ],
-      simulator: <MathMindSim />,
-      categories: ['ai']
-    },
-    {
-      id: 'visiondrive',
-      title: 'VisionDrive-RL Autonomous Control',
-      label: 'Flagship AI Project',
-      desc: 'A multi-camera perception and continuous control pipeline. Logs high-frequency trajectory data (3 perspective views + action parameters) during teleoperation for behavioral cloning and BEV-projectors.',
-      bullets: [
-        'Trained supervised BEV spatial projectors mapping perspective views to orthographic coords.',
-        'Deployed Behavioral Cloning policy imitating human control trajectories.',
-        'Evaluated agent policy robustness under adversarial rain, fog, and night sensor modes.'
-      ],
-      tags: ['RL Control', 'BEV Projection', 'Robotics'],
-      links: [
-        { label: 'Code', href: 'https://github.com/harsharajkumar-273/Vision-Drive-RL', primary: true }
-      ],
-      simulator: <VisionDriveSim />,
-      categories: ['ai']
-    },
-    {
-      id: 'fernos',
-      title: 'ARIA Disaster Pathfinder',
-      label: 'Distributed Systems',
-      desc: 'A resilient crisis command platform. Models urban infrastructure as a spatial PostGIS graph and computes safest paths to affected sectors by penalizing hazard decay rates.',
-      bullets: [
-        'Integrated custom Dijkstra weights scaled by exponential decay offsets exp(-1.5t).',
-        'Implemented real-time Socket.io responder updates triggered by telemetry listeners.',
-        'Maintained graph uptime via asynchronous ML workers decoupling graph search from telemetry ingestion.'
-      ],
-      tags: ['TypeScript', 'PostGIS', 'Socket.io'],
-      links: [
-        { label: 'Code', href: 'https://github.com/harsharajkumar-273/ARIA', primary: true }
-      ],
-      simulator: <FernOSSim />,
-      categories: ['systems']
-    },
-    {
-      id: 'pulsestream',
-      title: 'PulseStream Metrics Ingestion',
-      label: 'Distributed Systems',
-      desc: 'A horizontally scalable event-driven metrics ingestion pipeline built on Redpanda (Kafka), Redis idempotency edge locks, and PostgreSQL, benchmarked for high-concurrency IoT telemetry streams.',
-      bullets: [
-        'Decoupled ingestion gate returning HTTP 202 Accepted, routing streams using device ID partition keys.',
-        'Dual-layer idempotency: edge Redis lock-checks matching keys followed by PostgreSQL atomic upserts.',
-        'Containerized metrics collection scraping via Prometheus and visualizing loads on Grafana.'
-      ],
-      tags: ['TypeScript', 'Redpanda/Kafka', 'Redis Cache', 'Prometheus'],
-      links: [
-        { label: 'Code', href: 'https://github.com/harsharajkumar-273/PulseStream', primary: true }
-      ],
-      simulator: <PulseStreamSim />,
-      categories: ['systems']
-    },
-    {
-      id: 'cleanops',
-      title: 'CleanOps OpenEnv Benchmark',
-      label: 'Agentic AI & Eval',
-      desc: 'An evaluation benchmark environment designed to score LLM agent planners on multi-step operational datasets. Features dynamic Docker containers ensuring safe, sandboxed script runs.',
-      bullets: [
-        'Built sandboxed environments supporting CRM, billing, and inventory tasks.',
-        'Formulated custom reward shaping mechanics providing dense step-level partial credits.',
-        'Created validation loops checking schema correctness against oracle states.'
-      ],
-      tags: ['LLM Planners', 'Docker Sandbox', 'Eval Sandbox'],
-      links: [
-        { label: 'Launch Space', href: 'https://huggingface.co/spaces/harsharajkumar273/cleanops-openenv', primary: true },
-        { label: 'Code', href: 'https://github.com/harsharajkumar-273/cleanops', primary: false }
-      ],
-      simulator: <CleanOpsSim />,
-      categories: ['ai', 'systems']
-    },
-    {
-      id: 'segmentation',
-      title: 'Ultrasound Nerve Segmenter',
-      label: 'Computer Vision & MedTech',
-      desc: 'A deep learning computer vision pipeline designed to segment the Brachial Plexus nerve bundle in ultrasound scans, built around a fully convolutional U-Net architecture.',
-      bullets: [
-        'Trained U-Net semantic segmenter on high-frequency clinical scan datasets.',
-        'Deployed an interactive web application loading weights from local H5 checkpoints.',
-        'Integrated dynamic overlay visualization of binarized confidence masks on raw neck scans.'
-      ],
-      tags: ['U-Net', 'Segmentation', 'Streamlit'],
-      links: [
-        { label: 'Code', href: 'https://github.com/harsharajkumar-273/Ultrasound-Nerve-Segmentation', primary: true }
-      ],
-      simulator: <NerveSegmentationSim />,
-      categories: ['ai']
-    },
-    {
-      id: 'radar',
-      title: 'Repost-Radar Telemetry Filter',
-      label: 'High-Performance Systems',
-      desc: 'A C++20 real-time deduplication engine optimized for cleaning continuous telemetry streams. Minimizes database storage footprints by discarding redundant frames before model training.',
-      bullets: [
-        'Leveraged AVX2 SIMD hardware vectorization to parallelize signature generation.',
-        'Applied Locality-Sensitive Hashing (LSH) and MinHash functions for O(1) duplicates scanning.',
-        'Sustained over 240k requests per second under peak sensor stream ingestion.'
-      ],
-      tags: ['C++20', 'AVX2 SIMD', 'LSH MinHash'],
-      links: [
-        { label: 'Code', href: 'https://github.com/harsharajkumar-273/Repost-Radar', primary: true }
-      ],
-      simulator: <RadarSim />,
-      categories: ['systems']
+      categories: ['distributed', 'systems']
     }
   ];
 
@@ -224,7 +168,7 @@ export default function App() {
             WebkitTextFillColor: 'transparent',
             letterSpacing: '-0.04em'
           }}>
-            GitHub Projects & Simulators
+            Systems & SDE Flagship Projects
           </h2>
           <p style={{
             textAlign: 'center',
@@ -235,7 +179,7 @@ export default function App() {
             margin: '0 auto 2.5rem auto',
             lineHeight: 1.6
           }}>
-            A showcase of core engineering implementations. Select a domain to filter, and launch dynamic interactive simulators.
+            High-performance storage engines, distributed backend proxies, zero-copy SIMD deduplicators, and WebAssembly compiler sandboxes.
           </p>
 
           {/* Tab Navigation */}
@@ -246,13 +190,16 @@ export default function App() {
             marginBottom: '3rem',
             flexWrap: 'wrap'
           }}>
-            {['all', 'ai', 'systems'].map((tab) => {
-              const label = tab === 'all' ? 'All Projects' : tab === 'ai' ? 'AI & Robotics' : 'Systems & Infrastructure';
-              const isActive = activeTab === tab;
+            {[
+              { id: 'all', label: 'All Systems Projects' },
+              { id: 'systems', label: 'Systems & C++' },
+              { id: 'distributed', label: 'Distributed & Cloud' }
+            ].map((tab) => {
+              const isActive = activeTab === tab.id;
               return (
                 <button
-                  key={tab}
-                  onClick={() => setActiveTab(tab)}
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
                   className="font-space"
                   style={{
                     padding: '0.5rem 1.25rem',
@@ -267,7 +214,7 @@ export default function App() {
                     transition: 'all 0.25s ease-in-out'
                   }}
                 >
-                  {label}
+                  {tab.label}
                 </button>
               );
             })}

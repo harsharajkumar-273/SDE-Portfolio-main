@@ -1,32 +1,32 @@
 import React from 'react';
-import { Code2, Brain, Database, Cloud, Settings } from 'lucide-react';
+import { Code2, Server, Database, Cloud, Cpu } from 'lucide-react';
 
 export default function Skills() {
   const skillCategories = [
     {
       title: 'Languages',
       icon: <Code2 size={20} style={{ color: 'var(--primary)' }} />,
-      items: ['Python', 'C++', 'Java', 'JavaScript (Node.js)', 'TypeScript', 'SQL', 'HTML/CSS']
+      items: ['C++20', 'C', 'Java', 'Python', 'Go', 'TypeScript', 'JavaScript (Node.js)', 'SQL']
     },
     {
-      title: 'ML & Robotics',
-      icon: <Brain size={20} style={{ color: 'var(--secondary)' }} />,
-      items: ['PyTorch', 'Imitation Learning', 'Behavioral Cloning', 'BEV Occupancy Mapping', 'Weights & Biases', 'HuggingFace']
+      title: 'Systems & Storage Engine',
+      icon: <Cpu size={20} style={{ color: 'var(--secondary)' }} />,
+      items: ['Linux Systems Programming', 'io_uring', 'O_DIRECT', 'Lock-Free SkipList', 'Block Bloom Filters', 'AVX2 SIMD', 'WebAssembly (Pyodide)']
     },
     {
-      title: 'Backend & Systems',
+      title: 'Backend & Distributed Systems',
       icon: <Database size={20} style={{ color: 'var(--accent-purple)' }} />,
-      items: ['FastAPI', 'Express', 'Redis', 'PostgreSQL (PostGIS)', 'Docker', 'RESTful APIs', 'gRPC', 'Socket.io']
+      items: ['Express', 'FastAPI', 'Redis (zsets / SETNX)', 'Redpanda / Kafka', 'PostgreSQL (PostGIS)', 'Docker', 'WebSockets (Socket.io)', 'RESTful APIs']
     },
     {
       title: 'Cloud & Infrastructure',
       icon: <Cloud size={20} style={{ color: 'var(--primary)' }} />,
-      items: ['AWS (EC2, ECS, S3, RDS)', 'Prometheus', 'Grafana', 'GitHub Actions CI/CD']
+      items: ['AWS (EC2, ECS, S3, RDS)', 'Prometheus', 'Grafana', 'GitHub Actions CI/CD', 'BullMQ Queue', 'Linux CLI']
     },
     {
-      title: 'CS Fundamentals',
-      icon: <Settings size={20} style={{ color: 'var(--secondary)' }} />,
-      items: ['Data Structures & Algorithms', 'PID Control Systems', 'System Design', 'Circuit Breaking', 'Load Balancing']
+      title: 'CS Fundamentals & SRE',
+      icon: <Server size={20} style={{ color: 'var(--secondary)' }} />,
+      items: ['Data Structures & Algorithms', 'System Design', 'SRE Circuit Breaking', 'Token-Bucket Rate Limiting', 'EWMA PID Limiter', 'Memory Arenas']
     }
   ];
 
@@ -46,7 +46,7 @@ export default function Skills() {
         gap: '0.5rem',
         color: 'var(--text-main)'
       }}>
-        <Brain size={28} style={{ color: 'var(--primary)' }} /> Core Capabilities
+        <Cpu size={28} style={{ color: 'var(--primary)' }} /> Technical Arsenal & Systems Skills
       </h2>
       
       <div style={{
