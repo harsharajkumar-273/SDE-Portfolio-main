@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import Experience from './components/Experience';
 import Skills from './components/Skills';
 import Education from './components/Education';
+import Certifications from './components/Certifications';
 import Publications from './components/Publications';
 import LSMTreeSim from './components/LSMTreeSim';
 import ProofdeskSim from './components/ProofdeskSim';
@@ -155,6 +156,8 @@ export default function App() {
         <Experience />
         
         <Education />
+        
+        <Certifications />
         
         {/* Projects Section */}
         <section id="projects" className="container" style={{ marginTop: '4rem' }}>
