@@ -36,3 +36,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           cname: hashadev.duckdns.org
+          force_orphan: true
+
